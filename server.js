@@ -17,7 +17,7 @@ const app = express();
 require('dotenv').config();
 
 //Port Configuration
-const port =process.env.PORT;
+const port = process.env.PORT;
 
 //bringing in configs at the same time
 require('./config/passport');
@@ -50,14 +50,14 @@ app.use(expressLayouts);
 //Database Configuration
 const db = require('./config/db');
 
-
-// Import/Require Routes
-const indexRouter = require('./routes/index');
+//Import Routes
+const indexRouter = require("./routes/index");
+const categoryRouter = require("./routes/category");
 const reviewRouter = require('./routes/review');
 
-
-// Mount Routes
-app.use('/', indexRouter);
+//Mount Routes
+app.use("/", indexRouter)
+app.use("/category", categoryRouter)
 app.use('/review', reviewRouter);
 
 
