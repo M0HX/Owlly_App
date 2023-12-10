@@ -27,11 +27,17 @@ app.use(expressLayouts);
 //Database Configuration
 const db = require('./config/db');
 
-//Import Routes
-const indexRouter = require("./routes/index");
 
-//Mount Routes
-app.use("/", indexRouter)
+// Import/Require Routes
+const indexRouter = require('./routes/index');
+const reviewRouter = require('./routes/review');
+
+
+// Mount Routes
+app.use('/', indexRouter);
+app.use('/review', reviewRouter);
+
+
 
 app.listen(port, ()=> {
     console.log(`The Entertainment App is running on this Port ${port}`);
