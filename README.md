@@ -43,6 +43,7 @@ Modules/Languages Used For The Projects
     - Express
     - EJS 
     - Express-EJS-Layouts
+    - Multer
     - Mongoose
     - MongoDB
     - Passport
