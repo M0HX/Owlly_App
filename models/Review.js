@@ -9,7 +9,7 @@ const reviewSchema = mongoose.Schema({
     timestamps: true // means createdAt and updatedAt
 });
 
-// Creating Model
+// Creating Model 
 const Review = mongoose.model("Review", reviewSchema);
 
 module.exports = {Review};
