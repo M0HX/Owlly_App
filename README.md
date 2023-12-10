@@ -13,7 +13,7 @@ WireFrame
 ![Image](Wireframes and Prototype Here!)
 
 Entity Relationship Diagram
-![Image](./OwllyImages/OWLLY%20ERD/OWLLY-ERD.drawio.png)
+![Image](./public/images/OWLLY-ERD.drawio.png)
 
 User Stories
     - User must be able to Sign Up.
