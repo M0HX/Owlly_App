@@ -29,9 +29,11 @@ const db = require('./config/db');
 
 //Import Routes
 const indexRouter = require("./routes/index");
+const categoryRouter = require("./routes/category");
 
 //Mount Routes
 app.use("/", indexRouter)
+app.use("/category", categoryRouter)
 
 app.listen(port, ()=> {
     console.log(`The Entertainment App is running on this Port ${port}`);

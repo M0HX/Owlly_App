@@ -1,15 +1,15 @@
 const mongoose = require('mongoose');
 
-const mongoose = require('mongoose');
-
 const categorySchema = mongoose.Schema({
 name:String,
-},{
-    timestamps:true //means createdAt and updatedAt
-});
+// places: [{
+//     type:mongoose.Schema.Types.ObjectId,
+//     ref:'Places'
+// }]
+},);
 
 //Creating Model 
-const Article = mongoose.model("Article" , articleSchema);
+const Category = mongoose.model("Category" , categorySchema);
 
 //export
-module.exports = {Article};
+module.exports = {Category};
