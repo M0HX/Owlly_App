@@ -57,7 +57,6 @@ const indexRouter = require("./routes/index");
 const placeRouter = require('./routes/place');
 const categoryRouter = require("./routes/category");
 const reviewRouter = require('./routes/review');
-const placeRouter = require('./routes/place');
 
 
 //Mount Routes
@@ -65,7 +64,7 @@ app.use("/", indexRouter)
 app.use('/place', placeRouter);
 app.use("/category", categoryRouter)
 app.use('/review', reviewRouter);
-app.use('/place', placeRouter);
+
 
 
 
