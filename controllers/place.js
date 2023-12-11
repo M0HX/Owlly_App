@@ -3,6 +3,7 @@ const {Place} = require("../models/Place")
 const {Category} = require("../models/Category")
 const {Review} = require("../models/Review")
 
+
 //CRUD operation
 //Create Operation
 exports.place_create_get = (req,res)=>{
@@ -27,7 +28,7 @@ exports.place_create_post = (req,res)=>{
 exports.place_index_get = (req,res) =>{
     Place.find()
     .then((place)=> {
-        res.render("place/index", {place, dayjs})
+        res.render("place/index", {place})
     })
     .catch((err)=> {
         console.log(err)
@@ -38,7 +39,7 @@ exports.place_show_get = (req,res)=>{
     console.log(req.query.id);
     Place.findById(req.query.id).populate('place')
     .then((place)=> {
-        res.render("place/detail", {place, dayjs})
+        res.render("place/detail", {place})
     })
 
     .catch((err)=> {
