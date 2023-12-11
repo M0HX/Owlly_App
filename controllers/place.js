@@ -34,7 +34,15 @@ exports.place_index_get = (req,res) =>{
         console.log(err)
     })
 }
-
+exports.placeU_index_get = (req,res) =>{
+    Place.find()
+    .then((place)=> {
+        res.render("place/index2", {place})
+    })
+    .catch((err)=> {
+        console.log(err)
+    })
+}
 exports.place_show_get = (req,res)=>{
     console.log(req.query.id);
     Place.findById(req.query.id).populate('place')
