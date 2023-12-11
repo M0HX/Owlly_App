@@ -7,7 +7,16 @@ const {Review} = require("../models/Review")
 //CRUD operation
 //Create Operation
 exports.place_create_get = (req,res)=>{
-    res.render("place/add");
+    Category.find()
+    .then( categories => {
+        res.render("place/add", {categories})
+    }
+    )
+    .catch((err) => {
+        console.log(err);
+        res.send("Please try again later.")
+    })
+
 }
 
 exports.place_create_post = (req,res)=>{

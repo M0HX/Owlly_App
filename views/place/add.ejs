@@ -16,7 +16,7 @@
         <div>
             <label>Category: </label>
             <!-- <input type="text" name="author"> -->
-            <select name="category[]" multiple="multiple" class="form-control bg-dark text-light">
+            <select name="category" class="form-control bg-dark text-light">
                 <% categories.forEach(function(category) { %>
                     <option value="<%= category._id %>"><%= category.name %></option>
                 <% }); %>
