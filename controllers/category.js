@@ -1,5 +1,5 @@
 const {Category} = require("../models/Category")
-const {Places} = require("../models/Places")
+const {Place} = require("../models/Place")
 
 
 //Add Category
@@ -29,7 +29,7 @@ exports.category_create_post = (req , res) => {
     })
 }
 exports.category_index_get = (req, res) => {
-    //put the places name n the category
+    //put the place name n the category
 Category.find()
 .then((category) => {
     res.render("category/index" , {category});
@@ -63,7 +63,7 @@ exports.category_edit_get = (req, res) => {
 
 exports.category_update_put = (req, res) => {
     console.log(req.body.id);
-    Category.findByIdAndUpdate(req.body.id , req.body).populate('places')
+    Category.findByIdAndUpdate(req.body.id , req.body).populate('place')
     .then(() => {
         res.redirect("/category/index");
     })
