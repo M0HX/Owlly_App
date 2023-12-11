@@ -12,31 +12,31 @@
     </tr>
 
 
-    <% authors.forEach(function(author) { %>
+    <% place.forEach(function(place) { %>
         <tr>
 
            
-            <!-- <td> <%= author.name %> </td> -->
+            <!-- <td> <%= place.name %> </td> -->
             <td>
-                <a href="/author/detail?id=<%= author._id %>"> 
-                    <%= author.name %> 
+                <a href="/place/detail?id=<%= place._id %>"> 
+                    <%= place.name %> 
                 </a> 
             </td>
-            <td> <%= author.emailAddress %> </td>
-            <td> <%= author.phoneNumber %> </td>
-            <td> <%= author.createdAt %> </td>
-            <td> <%= author.updatedAt %> </td>
-            <!-- <td><a href="/article/delete?id=<%= author._id %>">Delete</a></td> -->
+            <td> <%= place.emailAddress %> </td>
+            <td> <%= place.phoneNumber %> </td>
+            <td> <%= place.createdAt %> </td>
+            <td> <%= place.updatedAt %> </td>
+            <!-- <td><a href="/article/delete?id=<%= place._id %>">Delete</a></td> -->
 
             <td>
-            <form method="POST" action="/author/delete?id=<%= author._id %>&_method=delete">
+            <form method="POST" action="/place/delete?id=<%= place._id %>&_method=delete">
                 <button type="submit" class="btn btn-danger">Delete</button>
             </form>
             </td>
 
             <td>
-            <form method="GET" action="/author/edit?id=<%= author._id %>">
-                <input type="hidden" name="id" value="<%= author._id %>">
+            <form method="GET" action="/place/edit?id=<%= place._id %>">
+                <input type="hidden" name="id" value="<%= place._id %>">
                 <button type="submit" class="btn btn-secondary">Edit</button>
             </form>
             </td>
