@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 
 const categorySchema = mongoose.Schema({
+categoryID: String,
 name:String,
 // places: [{
 //     type:mongoose.Schema.Types.ObjectId,

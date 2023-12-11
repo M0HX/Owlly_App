@@ -37,8 +37,10 @@ app.use(function(req,res,next){
     next();
 })
 
+
+
 //Node.js to look for all the static file in public folder (CSS, JS, AUDIO)
-app.use(express.static("public"));
+app.use(express.static(__dirname + '/public'));
 
 
 //Nodejs to look into the folder called views for all the ejs files
@@ -52,13 +54,18 @@ const db = require('./config/db');
 
 //Import Routes
 const indexRouter = require("./routes/index");
+const placeRouter = require('./routes/place');
 const categoryRouter = require("./routes/category");
 const reviewRouter = require('./routes/review');
 
+
 //Mount Routes
 app.use("/", indexRouter)
+app.use('/place', placeRouter);
 app.use("/category", categoryRouter)
 app.use('/review', reviewRouter);
+
+
 
 
 
