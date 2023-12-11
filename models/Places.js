@@ -4,6 +4,7 @@ const mongoose = require("mongoose");
 
 //Author Schema
 const placesSchema = mongoose.Schema({
+    placeID: String,
     name: String,
     content: String,
     category: [{
