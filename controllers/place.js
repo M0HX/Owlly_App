@@ -36,7 +36,7 @@ exports.place_index_get = (req,res) =>{
 
 exports.place_show_get = (req,res)=>{
     console.log(req.query.id);
-    Place.findById(req.query.id).populate('article')
+    Place.findById(req.query.id).populate('place')
     .then((place)=> {
         res.render("place/detail", {place, dayjs})
     })
