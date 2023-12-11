@@ -9,16 +9,21 @@
         </div>
 
         <div>
-            <label>Email Address: </label>
-            <input type="text" name="emailAddress" class="form-control bg-dark text-light">
+            <label>Content: </label>
+            <input type="text" name="content" class="form-control bg-dark text-light">
         </div>
 
         <div>
-            <label>Phone Number: </label>
-            <input type="text" name="phoneNumber" class="form-control bg-dark text-light">
+            <label>Category: </label>
+            <!-- <input type="text" name="category"> -->
+            <select name="category[]" multiple="multiple" class="form-control bg-dark text-light">
+                <% categories.forEach(function(category) { %>
+                    <option value="<%= category._id %>"><%= category.name %></option>
+                <% }); %>
+            </select>
         </div>
 
         <br>
-        <button type="submit" class="btn btn-primary">Add Author</button>
+        <button type="submit" class="btn btn-primary">Add Category</button>
     </form>
 </div>
