@@ -63,7 +63,8 @@ exports.category_edit_get = (req, res) => {
 
 exports.category_update_put = (req, res) => {
     console.log(req.body.id);
-    Category.findByIdAndUpdate(req.body.id , req.body).populate('place')
+    Category.findByIdAndUpdate(req.body.id , req.body)
+    // Category.findByIdAndUpdate(req.body.id , req.body).populate('place')
     .then(() => {
         res.redirect("/category/index");
     })
