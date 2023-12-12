@@ -9,14 +9,14 @@
     </tr>
 
 
-    <% review.forEach(function(review) { %>
+    <% reviews.forEach(function(review) { %>
         <tr>
 
            
             <!-- <td> <%= review.name %> </td> -->
             <td>
                 <a href="/review/detail?id=<%= review._id %>"> 
-                    <%= review.name %> 
+                    <%= review.reviewContent %> 
                 </a> 
             </td>
     
