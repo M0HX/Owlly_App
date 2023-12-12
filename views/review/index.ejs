@@ -1,0 +1,40 @@
+<h1>Reviews</h1>
+
+<table class="table table-dark table-hover">
+    <tr>
+        <th>Review ID</th>
+        <th>Review Content</th>
+        <th>Delete</th>
+        <th>Edit</th>
+    </tr>
+
+
+    <% reviews.forEach(function(review) { %>
+        <tr>
+
+           
+            <!-- <td> <%= review.name %> </td> -->
+            <td>
+                <a href="/review/detail?id=<%= review._id %>"> 
+                    <%= review.reviewContent %> 
+                </a> 
+            </td>
+    
+            <td>
+            <form method="POST" action="/review/delete?id=<%= review._id %>&_method=delete">
+                <button type="submit" class="btn btn-danger">Delete</button>
+            </form>
+            </td>
+
+            <td>
+            <form method="GET" action="/review/edit?id=<%= review._id %>">
+                <input type="hidden" name="id" value="<%= review._id %>">
+                <button type="submit" class="btn btn-secondary">Edit</button>
+            </form>
+            </td>
+
+        </tr>
+    <% }) %>
+    
+
+</table>
