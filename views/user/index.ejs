@@ -7,19 +7,29 @@
         <input type="text" name="name" value="<%= user.name %>" class="form-control bg-dark text-light">
     </div>
 
-   
+    <br>
 
     <!-- Here the Account Type -->
+    <div>
+        <label>User Type:</label>
+        <input type="text" name="name" value="<%= user.isAdmin ? 'admin' : 'user' %>" class="form-control bg-dark text-light" readonly>
+    </div>
+
+    <br>
 
     <div>
         <label>Email Address:</label>
-        <input  readonly type="text" name="readOnly-email" value="<%= user.email %>" class="form-control bg-dark text-light">
+        <input type="text" name="readOnly-email" value="<%= user.email %>" class="form-control bg-dark text-light" readonly>
     </div>
 
+    <br>
+    
     <div>
         <label>Profile Picture:</label>
         <img src="<%= user.avatar %>">
     </div>
        
+    <br>
+
    <button type="submit" class="btn btn-primary">Update Profile</button>
 </form> 
