@@ -1,0 +1,7 @@
+.clickable-image {
+    cursor: pointer;
+}
+
+#avatarInput {
+    display: none;
+}

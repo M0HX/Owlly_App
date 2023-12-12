@@ -31,15 +31,13 @@
     
     <div>
         <label>Profile Picture:</label>
-        <img src="<%= user.avatar %>">
+        <!-- Clickable image to trigger file input -->
+        <img src="<%= user.avatar %>" alt="Profile Picture" id="profilePicture" class="clickable-image">
+        <!-- Hidden file input -->
+        <input type="file" id="avatarInput" name="avatar" accept="image/*" style="display:none;">
     </div>
-
-    <div>
-        <label>Profile Picture:</label>
-        <input type="file" name="avatar" accept="image/*">
-     </div>
        
     <br>
 
    <button type="submit" class="btn btn-primary">Update Profile</button>
-</form> 
+</form>

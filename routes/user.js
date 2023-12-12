@@ -14,6 +14,7 @@ router.use(methodOverride("_method"));
 
 // Require our user controller
 const userCntrl = require("../controllers/user");
+const upload = require('../config/multer');
 
 // Routes
 router.get("/add", userCntrl.user_create_get);
@@ -28,8 +29,7 @@ router.delete("/delete", userCntrl.user_delete_get);
 
 router.get("/edit", userCntrl.user_edit_get);
 
-router.post("/update", userCntrl.user_update_put);
-
+router.post("/update", upload.single("avatarImg") , userCntrl.user_update_put);
 
 // Export router
 module.exports = router;
