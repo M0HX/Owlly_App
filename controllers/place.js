@@ -6,9 +6,11 @@ const {Review} = require("../models/Review")
 
 //CRUD operation
 //Create Operation
-exports.place_create_get = (req, res) => {
+//Create Operation
+exports.place_create_get = (req,res)=>{
     res.render("place/add");
-    }
+}
+
     exports.place_create_post = (req , res) => {
         console.log(req.body);
         let place = new Place(req.body)
@@ -26,8 +28,8 @@ exports.place_create_get = (req, res) => {
     
     exports.place_index_get = (req, res) => {
     Place.find().populate('category')
-    .then((places) => {
-        res.render("place/index" , {places});
+    .then((place) => {
+        res.render("place/index" , {place});
     })
     .catch((err) => {
         console.log(err);
