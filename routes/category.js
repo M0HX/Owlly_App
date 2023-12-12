@@ -18,6 +18,8 @@ router.get("/add" ,categoryCntrl.category_create_get);
 
 router.post("/add" ,categoryCntrl.category_create_post);
 
+router.get("/detail", categoryCntrl.category_show_get);
+
 router.get("/index" ,categoryCntrl.category_index_get);
 
 router.get("/delete" ,categoryCntrl.category_delete_get);

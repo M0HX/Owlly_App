@@ -3,14 +3,14 @@ const mongoose = require('mongoose');
 const categorySchema = mongoose.Schema({
 categoryID: String,
 name:String,
-// places: [{
-//     type:mongoose.Schema.Types.ObjectId,
-//     ref:'Places'
-// }]
+place: [{
+    type:mongoose.Schema.Types.ObjectId,
+    ref:'Place'
+}]
 },);
 
 //Creating Model 
-const Category = mongoose.model("Category" , categorySchema);
+const Category = mongoose.model( "Category" , categorySchema);
 
 //export
 module.exports = {Category};
