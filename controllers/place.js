@@ -72,7 +72,6 @@ exports.place_show_get = (req, res) => {
         Review.find({placeID:place._id}).then((reviews)=>{
             res.render("place/detail" , {place, reviews});
         })
-        Review.save();
     })
     .catch((err) => {
         console.log(err);

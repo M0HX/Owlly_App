@@ -32,6 +32,11 @@
 
 <form method="POST" action="/review/add">
 
+ <input type="hidden" name="placeID" value="<%= place._id %>"/>
+
+ <input type="hidden" name="userID" value="<%= user._id %>"/>
+
+
     <div>
         <label> Review </label>
         <input type="text" name="reviewContent" class="form-control bg-dark text-light"/>
