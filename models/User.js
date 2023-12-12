@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const userSchema = new Schema({
+    userID: String,
     name: String,
     isAdmin: {type: Boolean, default: false},
     googleId: {
@@ -10,7 +11,7 @@ const userSchema = new Schema({
     },
     email: String,
     avatar: String
-
+    
   }, {
     timestamps: true
   });

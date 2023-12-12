@@ -39,19 +39,23 @@
           <%}%>
           <a href="/category/index" class="btn btn-outline-primary">Category</a>
           <a href="/place/index" class="btn btn-outline-primary">Place</a>
-          <a href="/review/add" class="btn btn-outline-primary">Add Review</a>
+          <!-- <a href="/review/add" class="btn btn-outline-primary">Add Review</a> -->
+          <a href="/review/index" class="btn btn-outline-primary">Reviews</a>
           <a href="/logout" class="btn btn-outline-primary">Logout</a>
           <!-- Hi <a href="/user/index"><%= user.name %></a>  -->
           
-         <% } else { %>
+      <% } else { %>
           <a href="/place/index" class="btn btn-outline-primary">Place</a>
           <a href="/Category/index" class="btn btn-outline-primary">Category</a>
-          <a href="/auth/google" class="btn btn-outline-primary">Signin</a>
-        <%  } %>
+          <!-- <a href="/author/index" class="btn btn-outline-primary">Authors</a> -->
+         <a href="/auth/google" class="btn btn-outline-primary">Signin</a>
+        <%  } %> 
     
       </nav>   
     
-    <%- body %>
+      <%- body %> 
+
+
 
 <main class="homeMain">
 

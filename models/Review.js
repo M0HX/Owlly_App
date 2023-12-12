@@ -1,15 +1,25 @@
 const mongoose = require('mongoose');
 
 const reviewSchema = mongoose.Schema({
-    userID: String,
-    placeID: String,
     reviewID: String,
+    userID: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User'
+    },
+    user: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User'
+    },
+    placeID: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Place'
+    },
     reviewContent: String,
+    reviewerName: String, // reviewer's name
 }, {
-    timestamps: true // means createdAt and updatedAt
+    timestamps: true
 });
 
-// Creating Model 
 const Review = mongoose.model("Review", reviewSchema);
 
-module.exports = {Review};
+module.exports = { Review };

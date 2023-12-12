@@ -1,6 +1,9 @@
 //API's/ function
 const {Place} = require("../models/Place")
 const {Category} = require("../models/Category")
+const {Review} = require("../models/Review");
+
+
 //CRUD Operations
 //HTTP POST - create - post the data
 //HTTP GET - Read - Retrives the data
@@ -21,6 +24,7 @@ exports.place_create_post = (req , res) => {
     //Empede schema
 //     console.log(req.body);
     let place = new Place(req.body)
+    
 // Category.findById(req.body.category)
 // .then((category) => {
 //     category.place.push(place);
@@ -61,16 +65,32 @@ Place.find().populate('category')
     console.log(err);
 })
 }
+
 exports.place_show_get = (req, res) => {
-    console.log(req.query.id);
-    Place.findById(req.query.id).populate('category')
-    .then((place) => {
-        res.render("place/detail" , {place});
-    })
-    .catch((err) => {
-        console.log(err);
-    })
-}
+    console.log("place id: " + req.query.id);
+    Place.findById(req.query.id)
+        .populate('category')
+        .then((place) => {
+            Review.find({ placeID: req.query.id })
+                .populate('user')  // populate
+                .then((reviews) => {
+                    console.log('Fetched reviews:', reviews);
+                    res.render("place/detail", { place, reviews });
+                })
+                .catch((err) => {
+                    console.log(err);
+                    res.send("Please try again later.");
+                });
+        })
+        .catch((err) => {
+            console.log(err);
+        });
+};
+
+
+
+
+
 exports.place_delete_get = (req, res) => {
     console.log(req.query.id);
     Place.findByIdAndDelete(req.query.id)
@@ -101,6 +121,103 @@ exports.place_update_put = (req, res) => {
     })
 }
 
+
+
+
+
+// Create Operation
+exports.review_create_get = (req, res) => {
+    Review.find()
+    .then( reviews => {
+        res.render("review/add", {reviews})
+    }
+    )
+    .catch((err) => {
+        console.log(err);
+        res.send("Please try again later.")
+    })
+    //res.render("review/add");
+}
+
+exports.review_create_post = (req, res) => {
+    console.log(req.body); //check if we're getting req.body
+    let review = new Review(req.body);
+
+   
+    // Save Review
+    review.save()
+    .then(() => {
+        res.redirect("/review/index");
+    })
+    .catch((err) => {
+        console.log(err);
+        res.send("Please try again later.")
+    })
+
+}
+
+exports.review_index_get = (req, res) => {
+    Review.find()
+    .then((reviews) => { // catch reviews and then display
+        res.render("review/index", {reviews}); // then we sending them to our index
+    })
+    .catch((err) => {
+        console.log(err);
+        res.send("Please try again later.")
+    })
+}
+
+exports.review_show_get = (req, res) => {
+    console.log(req.query.id);
+    Review.find({ placeID: req.query.id })
+        .populate('user')
+        .then((reviews) => {
+            console.log('Fetched reviews:', reviews);
+            res.render("review/detail", { reviews });
+        })
+        .catch((err) => {
+            console.log(err);
+            res.send("Please try again later.");
+        });
+}
+
+exports.review_delete_get = (req, res) => {
+    console.log(req.query.id);
+    Review.findByIdAndDelete(req.query.id)
+    .then(() => {
+        res.redirect("/review/index");
+    })
+    .catch((err) => {
+        console.log(err);
+        res.send("Please try again later.")
+    })
+}
+
+exports.review_edit_get = (req, res) => {
+    console.log(req.query.id);
+    Review.findById(req.query.id)
+    .then((review) => {
+        // console.log(review);
+        res.render("review/edit", {review});
+    })
+    .catch((err) => {
+        console.log(err);
+        res.send("Please try again later.")
+    })
+}
+
+
+exports.review_update_put = (req, res) => {
+    console.log(req.query.id);
+    Review.findByIdAndUpdate(req.body.id, req.body)
+    .then(() => {
+        res.redirect("/review/index");
+    })
+    .catch((err) => {
+        console.log(err);
+        res.send("Please try again later.")
+    })
+}
 
 
 

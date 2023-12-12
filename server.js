@@ -3,7 +3,7 @@
 const express = require('express')
 const session = require('express-session');
 const passport = require('passport');
-const multer = require('multer');
+
 
 // Load Express EJS LAYOUTS
 const expressLayouts = require('express-ejs-layouts');
@@ -40,17 +40,7 @@ app.use(function(req,res,next){
 
 
 
-// Multer configuration
-const storage = multer.diskStorage({
-    destination: function (req, file, cb) {
-       cb(null, 'public/uploads'); // Define the path where uploaded files will be stored
-    },
-    filename: function (req, file, cb) {
-       cb(null, Date.now() + '-' + file.originalname); // Unique file name
-    },
- });
- 
- const upload = multer({ storage: storage });
+
  
 
 
@@ -59,6 +49,8 @@ const storage = multer.diskStorage({
 //Node.js to look for all the static file in public folder (CSS, JS, AUDIO)
 app.use(express.static(__dirname + '/public'));
 
+// Ensure that the uploads directory is publicly accessible or serve it as a static directory using Express
+app.use('/uploads', express.static('public/uploads'));
 
 //Nodejs to look into the folder called views for all the ejs files
 app.set("view engine", "ejs");

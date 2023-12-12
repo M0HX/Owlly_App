@@ -27,20 +27,30 @@ exports.review_create_get = (req, res) => {
 }
 
 exports.review_create_post = (req, res) => {
-    console.log(req.body); //check if we're getting req.body
-    let review = new Review(req.body);
+    console.log(req.body);
+
+    const userID = req.user._id;
+    const userName = req.user.name;
+
+    let review = new Review({
+        reviewContent: req.body.reviewContent,
+        placeID: req.body.placeID,
+        userID: userID,
+        reviewerName: userName // reviewer's name
+    });
 
     // Save Review
     review.save()
-    .then(() => {
-        res.redirect("/review/index");
-    })
-    .catch((err) => {
-        console.log(err);
-        res.send("Please try again later.")
-    })
+        .then(() => {
+            res.redirect("/review/index");
+        })
+        .catch((err) => {
+            console.log(err);
+            res.send("Please try again later.");
+        });
+};
 
-}
+
 
 exports.review_index_get = (req, res) => {
     Review.find()
@@ -55,15 +65,21 @@ exports.review_index_get = (req, res) => {
 
 exports.review_show_get = (req, res) => {
     console.log(req.query.id);
-    Review.findById(req.query.id).populate('review')
-    .then((review) => {
-        res.render("review/detail", {review})
-    })
-    .catch((err) => {
-        console.log(err);
-        res.send("Please try again later.")
-    })
-}
+
+    Review.find({ placeID: req.query.id })
+        .populate('user')
+        .then((reviews) => {
+            console.log('Fetched reviews:', reviews);
+            res.render("review/detail", { reviews });
+        })
+        .catch((err) => {
+            console.log(err);
+            res.send("Please try again later.");
+        });
+};
+
+
+
 
 exports.review_delete_get = (req, res) => {
     console.log(req.query.id);
