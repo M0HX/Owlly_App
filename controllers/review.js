@@ -14,7 +14,16 @@ const {Review} = require("../models/Review");
 
 // Create Operation
 exports.review_create_get = (req, res) => {
-    res.render("review/add");
+    Review.find()
+    .then( reviews => {
+        res.render("review/add", {reviews})
+    }
+    )
+    .catch((err) => {
+        console.log(err);
+        res.send("Please try again later.")
+    })
+    //res.render("review/add");
 }
 
 exports.review_create_post = (req, res) => {

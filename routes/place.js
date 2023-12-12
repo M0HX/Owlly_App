@@ -7,6 +7,12 @@ router.use(methodOverride('_method'));
 const placeCntrl = require("../controllers/place")
 
 
+// Require the auth middleware
+const ensureLoggedIn = require('../config/ensureLoggedIn');
+
+router.get("/add", ensureLoggedIn, placeCntrl.place_create_get);
+router.post("/add", ensureLoggedIn, placeCntrl.place_create_post);
+
 //Routes
 router.get("/add", placeCntrl.place_create_get);
 router.post("/add", placeCntrl.place_create_post);

@@ -2,25 +2,36 @@ const {Category} = require("../models/Category")
 const {Place} = require("../models/Place")
 
 
-//Add Category
+//Create operations 
 exports.category_create_get = (req, res) => {
-    Category.find()
-    .then((category) =>{
-        res.render("category/add" , {category});
+    Place.find()
+    .then((places) =>{
+        res.render("category/add" , {places});
     })
     .catch( err =>{
         console.log(err);
     })
 }
-
-//Save Category
+    //save  place inside category 
 
 exports.category_create_post = (req , res) => {
+    //Empede schema
+//     console.log(req.body);
     let category = new Category(req.body)
-
-    //save recipe 
-    category.save()
+//Save category
+category.save()
     .then(() => {
+        console.log(req.body)
+        req.body.place.forEach(place => {
+            Place.findById(place)
+            .then((place) => {
+                place.category.push(category);
+                place.save();
+            })
+            .catch(err => {
+                console.log(err);
+            })
+        });
         res.redirect("/category/index");
     })
     .catch((err) => {
@@ -28,15 +39,27 @@ exports.category_create_post = (req , res) => {
         res.send("Please try again later!!")
     })
 }
+
 exports.category_index_get = (req, res) => {
     //put the place name n the category
-Category.find()
+Category.find().populate('place')
 .then((category) => {
     res.render("category/index" , {category});
 })
 .catch((err) => {
     console.log(err);
 })
+}
+
+exports.category_show_get = (req, res) => {
+    console.log(req.query.id);
+    Category.findById(req.query.id).populate('place')
+    .then((category) => {
+        res.render("category/detail" , {category});
+    })
+    .catch((err) => {
+        console.log(err);
+    })
 }
 
 
@@ -52,7 +75,7 @@ exports.category_delete_get = (req, res) => {
 }
 
 exports.category_edit_get = (req, res) => {
-    Category.findById(req.query.id)
+    Category.findById(req.query.id).populate('place')
     .then((category) => {
         res.render("category/edit" , {category});
     })
@@ -63,8 +86,7 @@ exports.category_edit_get = (req, res) => {
 
 exports.category_update_put = (req, res) => {
     console.log(req.body.id);
-    Category.findByIdAndUpdate(req.body.id , req.body)
-    // Category.findByIdAndUpdate(req.body.id , req.body).populate('place')
+    Category.findByIdAndUpdate(req.body.id , req.body).populate('place')
     .then(() => {
         res.redirect("/category/index");
     })
@@ -72,3 +94,10 @@ exports.category_update_put = (req, res) => {
         console.log(err);
     })
 }
+
+
+
+
+
+
+
