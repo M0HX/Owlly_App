@@ -96,8 +96,8 @@ exports.user_edit_get = (req, res) => {
 
 
 exports.user_update_put = (req, res) => {
-    // console.log(req.query.id);
-    User.findByIdAndUpdate(req.body.id, req.body)
+    console.log(req.query.id);
+    User.findByIdAndUpdate(req.query.id, req.body)
     .then(() => {
         res.redirect("/user/index");
     })
