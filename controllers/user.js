@@ -43,7 +43,7 @@ exports.user_create_post = (req, res) => {
 }
 
 exports.user_index_get = (req, res) => {
-    console.log("u: ",res.locals.user._id)
+    // console.log("u: ",res.locals.user._id)
     if(res.locals.user){
          User.findById(res.locals.user._id)
     .then((users) => { // catch users and then display
@@ -58,7 +58,7 @@ exports.user_index_get = (req, res) => {
 }
 
 exports.user_show_get = (req, res) => {
-    console.log(req.query.id);
+    // console.log(req.query.id);
     User.findById(req.query.id).populate('user')
     .then((user) => {
         res.render("user/detail", {user})
@@ -70,7 +70,7 @@ exports.user_show_get = (req, res) => {
 }
 
 exports.user_delete_get = (req, res) => {
-    console.log(req.query.id);
+    // console.log(req.query.id);
     User.findByIdAndDelete(req.query.id)
     .then(() => {
         res.redirect("/user/index");
@@ -82,7 +82,7 @@ exports.user_delete_get = (req, res) => {
 }
 
 exports.user_edit_get = (req, res) => {
-    console.log(req.query.id);
+    // console.log(req.query.id);
     User.findById(req.query.id)
     .then((user) => {
         // console.log(user);
@@ -96,7 +96,7 @@ exports.user_edit_get = (req, res) => {
 
 
 exports.user_update_put = (req, res) => {
-    console.log(req.query.id);
+    // console.log(req.query.id);
     User.findByIdAndUpdate(req.body.id, req.body)
     .then(() => {
         res.redirect("/user/index");
