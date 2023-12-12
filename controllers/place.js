@@ -65,19 +65,32 @@ Place.find().populate('category')
     console.log(err);
 })
 }
+
 exports.place_show_get = (req, res) => {
     console.log("place id: " + req.query.id);
-    Place.findById(req.query.id).populate('category')
-    .then((place) => {
-        console.log(place)
-        Review.find({placeID:place._id}).then((reviews)=>{
-            res.render("place/detail" , {place, reviews});
+    Place.findById(req.query.id)
+        .populate('category')
+        .then((place) => {
+            Review.find({ placeID: req.query.id })
+                .populate('user')  // populate
+                .then((reviews) => {
+                    console.log('Fetched reviews:', reviews);
+                    res.render("place/detail", { place, reviews });
+                })
+                .catch((err) => {
+                    console.log(err);
+                    res.send("Please try again later.");
+                });
         })
-    })
-    .catch((err) => {
-        console.log(err);
-    })
-}
+        .catch((err) => {
+            console.log(err);
+        });
+};
+
+
+
+
+
 exports.place_delete_get = (req, res) => {
     console.log(req.query.id);
     Place.findByIdAndDelete(req.query.id)
@@ -156,14 +169,16 @@ exports.review_index_get = (req, res) => {
 
 exports.review_show_get = (req, res) => {
     console.log(req.query.id);
-    Review.findById(req.query.id).populate('review')
-    .then((review) => {
-        res.render("review/detail", {review})
-    })
-    .catch((err) => {
-        console.log(err);
-        res.send("Please try again later.")
-    })
+    Review.find({ placeID: req.query.id })
+        .populate('user')
+        .then((reviews) => {
+            console.log('Fetched reviews:', reviews);
+            res.render("review/detail", { reviews });
+        })
+        .catch((err) => {
+            console.log(err);
+            res.send("Please try again later.");
+        });
 }
 
 exports.review_delete_get = (req, res) => {
