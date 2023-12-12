@@ -12,12 +12,23 @@
   </div>
 </div>
 
+<!-- Reviews -->
+
 <div>
   <div>
-    <p><%= place.review.forEach(function()) %></p>
+    <p>
+      <% if (place && place.review && place.review.length > 0) { %>
+        <% place.review.forEach(function(review) { %>
+          <!-- Access properties of the 'review' object as needed -->
+          <%= review.propertyName %>
+        <% }); %>
+      <% } else { %>
+        <!-- else no reviews found -->
+        No reviews available.
+      <% } %>
+    </p>
   </div>
 </div>
-<div>
 
 <form method="POST" action="/review/add">
 
