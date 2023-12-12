@@ -31,11 +31,15 @@
     
     <div>
         <label>Profile Picture:</label>
-        <!-- Clickable image to trigger file input -->
-        <img src="<%= user.avatar %>" alt="Profile Picture" id="profilePicture" class="clickable-image">
-        <!-- Hidden file input -->
-        <input type="file" id="avatarInput" name="avatar" accept="image/*" style="display:none;">
+        <img src="<%= user.avatar %>">
     </div>
+
+    <br>
+
+    <div>
+        <label>Profile Picture:</label>
+        <input type="file" name="avatarImg" accept="image/*">
+     </div>
        
     <br>
 
