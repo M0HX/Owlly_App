@@ -3,22 +3,29 @@
 <table class="table table-dark table-hover">
     <tr>
         <th>Name</th>
-        <th>Delete</th>
+        <% if(user) { %>
+
+                <% if(user.isAdmin ) { %>
+ <th>Delete</th>
         <th>Edit</th>
+
+            <% } %>
+            <% } %>
+       
     </tr>
 
 
-    <% place.forEach(function(place) { %>
+    <% places.forEach(function(place) { %>
         <tr>
-
-           
-            <!-- <td> <%= place.name %> </td> -->
             <td>
                 <a href="/place/detail?id=<%= place._id %>"> 
                     <%= place.name %> 
                 </a> 
             </td>
-    
+            <% if(user) { %>
+
+                <% if(user.isAdmin ) { %>
+
             <td>
             <form method="POST" action="/place/delete?id=<%= place._id %>&_method=delete">
                 <button type="submit" class="btn btn-danger">Delete</button>
@@ -31,7 +38,8 @@
                 <button type="submit" class="btn btn-secondary">Edit</button>
             </form>
             </td>
-
+            <% } %>
+            <% } %>
         </tr>
     <% }) %>
     
