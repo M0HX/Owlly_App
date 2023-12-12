@@ -10,7 +10,6 @@ const placeCntrl = require("../controllers/place")
 //Routes
 router.get("/add", placeCntrl.place_create_get);
 router.post("/add", placeCntrl.place_create_post);
-router.get("/index2", placeCntrl.placeU_index_get);
 router.get("/index", placeCntrl.place_index_get);
 router.get("/detail", placeCntrl.place_show_get);
 router.delete("/delete", placeCntrl.place_delete_get);

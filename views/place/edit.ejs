@@ -1,29 +1,20 @@
 <div class="form-style-6">
-    <h1>Edit Author</h1>
+    <h1>Edit Place</h1>
 
 
-    <form method="POST" action="/author/update?id=<%= author._id %>">
+    <form method="POST" action="/place/update?id=<%= place._id %>">
         <div>
             <label>Name: </label>
-            <input type="text" name="name" value="<%= author.name %>" class="form-control bg-dark text-light">
+            <input type="text" name="name" value="<%= place.name %>" class="form-control bg-dark text-light">
         </div>
 
-        <div>
-            <label>Email Address: </label>
-            <textarea name="emailAddress" class="form-control bg-dark text-light"><%= author.emailAddress %></textarea>
-        </div>
-
-        <div>
-            <label>Phone Number: </label>
-            <input type="text" name="phoneNumber" value="<%= author.phoneNumber %>" class="form-control bg-dark text-light">
-        </div>
-
-        <input type="hidden" name="id" value="<%= author._id %>" class="form-control bg-dark text-light">
+    
+        <input type="hidden" name="id" value="<%= place._id %>" class="form-control bg-dark text-light">
 
         <!-- <input type="submit"> -->
         <!-- <button type="submit" class="btnUpdate">Update Author</button> -->
         <br>
-        <button type="submit" class="btn btn-primary">Update Author</button>
+        <button type="submit" class="btn btn-primary">Update Place</button>
         
     </form>
 </div>
