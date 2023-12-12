@@ -2,7 +2,7 @@
 //Load the Modules
 const mongoose = require("mongoose");
 
-//Author Schema
+//Place Schema
 const placeSchema = mongoose.Schema({
     placeID: String,
     name: String,
@@ -13,7 +13,7 @@ const placeSchema = mongoose.Schema({
 }],
 });
 
-//Author Model
+//Place Model
 const Place = mongoose.model("Place", placeSchema);
 //Export 
 module.exports = {Place};
