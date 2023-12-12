@@ -1,6 +1,6 @@
 // API's / Functions
 
-const {User} = require("../models/User");
+const User = require("../models/User");
 
 
 // CRUD Operations
@@ -43,7 +43,9 @@ exports.user_create_post = (req, res) => {
 }
 
 exports.user_index_get = (req, res) => {
-    User.find()
+    console.log("u: ",res.locals.user._id)
+    if(res.locals.user){
+         User.findById(res.locals.user._id)
     .then((users) => { // catch users and then display
         res.render("user/index", {users}); // then we sending them to our index
     })
@@ -51,6 +53,8 @@ exports.user_index_get = (req, res) => {
         console.log(err);
         res.send("Please try again later.")
     })
+    }
+   
 }
 
 exports.user_show_get = (req, res) => {
