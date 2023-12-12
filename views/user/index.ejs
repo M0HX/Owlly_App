@@ -1,6 +1,6 @@
 <h1>User Profile</h1>
 
-<form method="POST" action="/user/update?id=<%= user._id %>">
+<form method="POST" action="/user/update?id=<%= user._id %>" enctype="multipart/form-data">
    
     <div>
         <label>Name:</label>
@@ -31,10 +31,11 @@
     
     <div>
         <label>Profile Picture:</label>
-        <img src="<%= user.avatar %>">
+        <img src="<%= user.avatar %>"><br>
+        <input type="file" name="avatarImg" accept="image/*">
     </div>
        
     <br>
 
    <button type="submit" class="btn btn-primary">Update Profile</button>
-</form> 
+</form>

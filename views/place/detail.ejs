@@ -3,11 +3,59 @@
       <h3><%= place.name %></h3>
     </div>
 </div>
+
+<br>
+
+<div>
+  <div>
+    <p><%= place.content %></p>
+  </div>
+</div>
+
+<!-- Reviews -->
+
+<div>
+  <div>
+    <p>
+      <% if (place && place.review && place.review.length > 0) { %>
+        <% place.review.forEach(function(review) { %>
+          <!-- Access properties of the 'review' object as needed -->
+          <%= review.propertyName %>
+        <% }); %>
+      <% } else { %>
+        <!-- else no reviews found -->
+        No reviews available.
+      <% } %>
+    </p>
+  </div>
+</div>
+
+<form method="POST" action="/review/add">
+
+ <input type="hidden" name="placeID" value="<%= place._id %>"/>
+
+ <input type="hidden" name="userID" value="<%= user._id %>"/>
+
+
+    <div>
+        <label> Review </label>
+        <input type="text" name="reviewContent" class="form-control bg-dark text-light"/>
+    </div>
+       
+    <br>
+   <button type="submit" class="btn btn-primary">Add Review</button>
+</form> 
+
+</div>
+
 <br>
 <% place.category.forEach(function(category) { %>
 <hr>
+
+
 <div>
   <div class="category">Category: <a href="/category/detail?id=<%= category._id %>"><%= category.name %></div></a>
 </div>
 
 <% }) %></br>
+

@@ -1,10 +1,10 @@
 const mongoose = require('mongoose');
 
 const reviewSchema = mongoose.Schema({
+    reviewID: String,
     userID: String,
     placeID: String,
-    reviewID: String,
-    reviewContent: String,
+    reviewContent: String
 }, {
     timestamps: true // means createdAt and updatedAt
 });
