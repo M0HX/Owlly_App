@@ -1,18 +1,20 @@
 //API's/ function
 const {Place} = require("../models/Place")
 const {Category} = require("../models/Category")
-const {Place} = require("../models/Place")
-
-
-//Create operations 
+//CRUD Operations
+//HTTP POST - create - post the data
+//HTTP GET - Read - Retrives the data
+//HTTP PUT - update - updates the data
+//HTTP DELETE/GET/POST - delete - deletes the data
+//Create operations
 exports.category_create_get = (req, res) => {
 res.render("category/add");
 }
 exports.category_create_post = (req , res) => {
     console.log(req.body);
     let category = new Category(req.body)
-//Save category
-category.save()
+    //save category
+    category.save()
     .then(() => {
         res.redirect("/category/index");
     })
@@ -69,10 +71,3 @@ exports.category_update_put = (req, res) => {
         console.log(err);
     })
 }
-
-
-
-
-
-
-
