@@ -4,22 +4,17 @@
    
     <div>
         <label>Name:</label>
-        <input type="text" name="name"/>
+        <input type="text" name="name" value="<%= user.name %>" class="form-control bg-dark text-light">
     </div>
 
-    <div>
-        <label>Account Type:</label>
-        <!-- <input type="text" name="author"> -->
-        <select name="category" class="form-control bg-dark text-light">
-            <% categories.forEach(function(category) { %>
-                <option value="<%= category._id %>"><%= category.name %></option>
-            <% }); %>
-        </select>
-    </div>
+   
+
+    
+
 
     <div>
         <label>Email Address:</label>
-        <input type="text" name="email"/>
+        <input type="text" name="email" value="<%= user.email %>" class="form-control bg-dark text-light">
     </div>
 
     <div>
