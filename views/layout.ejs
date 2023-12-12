@@ -17,19 +17,23 @@
                     <li class="navList"><a href="#">Home</a></li>
                     <li class="navList"><a href="#">About Us</a></li>
                     <li class="navList"><a href="/category/index">Category</a></li>
-                    <li class="navList"><a href="/auth/google">Sign In</a></li>
+                    <div><li class="navList"> <% if(user) { %>
+                    <a href="/logout" class="HeaderLogout">Logout</a></div>
+                    Hi, <a href="/user/index" class="ms-1"> <%= user.name %>!</a> 
+                    <% } else { %>
+                    <a href="/auth/google" class="HeaderLogout">Sign In</a>
+                    <%  } %>
+                    </li>
+                    
+                    
                 </ul>
             </nav>
 
-            <form class="d-flex" role="search">
-                <input class="searchBar form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success searchArea" type="submit">Search</button>
-                </form>
         </div>
         
         </header>
     
-    <nav>
+    <!-- <nav>
       <% if(user) { %>
         <% if(user.isAdmin) { %>
           <a href="/category/add" class="btn btn-outline-primary">Add Category</a>
@@ -39,17 +43,26 @@
           <a href="/place/index" class="btn btn-outline-primary">Place</a>
           <a href="/review/add" class="btn btn-outline-primary">Add Review</a>
           <a href="/logout" class="btn btn-outline-primary">Logout</a>
-          Hi <a href="/user/index"><%= user.name %></a> 
+          <!-- Hi <a href="/user/index"><%= user.name %></a>  -->
           
-        <% } else { %>
+        <!-- <% } else { %>
           <a href="/place/index" class="btn btn-outline-primary">Place</a>
           <a href="/Category/index" class="btn btn-outline-primary">Category</a>
           <!-- <a href="/author/index" class="btn btn-outline-primary">Authors</a> -->
-          <a href="/auth/google" class="btn btn-outline-primary">Signin</a>
-        <%  } %>
+          <!-- <a href="/auth/google" class="btn btn-outline-primary">Signin</a>
+        <%  } %> -->
     
-      </nav>  
+      </nav>   
     
-    <%- body %>
+    <!-- <%- body %> -->
+
+
+
+<main class="homeMain">
+
+
+
+</main>
+
 </body>
 </html>

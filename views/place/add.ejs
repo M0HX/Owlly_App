@@ -15,10 +15,10 @@
 
         <div>
             <label>Category: </label>
-            <!-- <input type="text" name="author"> -->
             <select name="category" class="form-control bg-dark text-light">
-                <% categories.forEach(function(category) { %>
+                <% categories.forEach(function(categories) { %>
                     <option value="<%= category._id %>"><%= category.name %></option>
+               
                 <% }); %>
             </select>
         </div>

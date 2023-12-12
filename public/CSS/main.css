@@ -4,6 +4,7 @@
 
 body{
     color: black;
+    padding: 5px;
 }
 
  a{
@@ -15,8 +16,6 @@ body{
     background-color: #EFECE9;
     align-items: center;
     display: flex;
-    
-    
 }
 
 .LogoOwlly{
@@ -30,7 +29,7 @@ body{
     justify-content: center;
     font-size: 18px;
     margin: 10px;
-    margin-left: 100px;
+    margin-left: 200px;
   
 }
 
@@ -47,9 +46,10 @@ body{
     text-align: center;
 }
 
-.searchArea{
-    border-color: #6c6351;
-    color: black;
-    }
-
-
+.skylinebh{
+    background-size: cover;
+    background-position: center center;
+    margin: 0 auto;
+    width: 100%;
+    height: auto;
+}
