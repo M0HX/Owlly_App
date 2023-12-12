@@ -10,17 +10,20 @@
     <h1>Owlly App</h1>
     <hr>
     <nav>
-        <% if(user) { %>
-          <a href="/category/index" class="btn btn-outline-primary">Category</a>
+      <% if(user) { %>
+        <% if(user.isAdmin) { %>
           <a href="/category/add" class="btn btn-outline-primary">Add Category</a>
-          <a href="/place/index" class="btn btn-outline-primary">Place</a>
           <a href="/place/add" class="btn btn-outline-primary">Add Place</a>
+          <%}%>
+          <a href="/category/index" class="btn btn-outline-primary">Category</a>
+          <a href="/place/index" class="btn btn-outline-primary">Place</a>
+          <a href="/review/add" class="btn btn-outline-primary">Add Review</a>
           <a href="/logout" class="btn btn-outline-primary">Logout</a>
           Hi <%= user.name %>
-    
+          
         <% } else { %>
-          <a href="/Category/index" class="btn btn-outline-primary">Category</a>
           <a href="/place/index" class="btn btn-outline-primary">Place</a>
+          <a href="/Category/index" class="btn btn-outline-primary">Category</a>
           <!-- <a href="/author/index" class="btn btn-outline-primary">Authors</a> -->
           <a href="/auth/google" class="btn btn-outline-primary">Signin</a>
         <%  } %>
