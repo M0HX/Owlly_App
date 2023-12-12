@@ -3,9 +3,20 @@
       <h3><%= place.name %></h3>
     </div>
 </div>
+
+<br>
+
+<div>
+  <div>
+    <p><%= place.content %></p>
+  </div>
+</div>
+
 <br>
 <% place.category.forEach(function(category) { %>
 <hr>
+
+
 <div>
   <div class="category">Category: <a href="/category/detail?id=<%= category._id %>"><%= category.name %></div></a>
 </div>
