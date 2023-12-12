@@ -3,42 +3,42 @@ const {Place} = require("../models/Place")
 
 
 //Create operations 
+//Add Category
 exports.category_create_get = (req, res) => {
-    Place.find()
-    .then((places) =>{
-        res.render("category/add" , {places});
+    Category.find()
+    .then((category) =>{
+        res.render("category/add" , {category});
     })
     .catch( err =>{
         console.log(err);
     })
 }
+
     //save  place inside category 
 
-exports.category_create_post = (req , res) => {
-    //Empede schema
-//     console.log(req.body);
-    let category = new Category(req.body)
-//Save category
-category.save()
-    .then(() => {
-        console.log(req.body)
-        req.body.place.forEach(place => {
-            Place.findById(place)
-            .then((place) => {
-                place.category.push(category);
-                place.save();
-            })
-            .catch(err => {
-                console.log(err);
-            })
-        });
-        res.redirect("/category/index");
+    exports.category_create_post = (req , res) => {
+        let category = new Category(req.body)
+    
+        //save recipe 
+        category.save()
+        .then(() => {
+            res.redirect("/category/index");
+        })
+        .catch((err) => {
+            console.log(err);
+            res.send("Please try again later!!")
+        })
+    }
+    exports.category_index_get = (req, res) => {
+        //put the place name n the category
+    Category.find()
+    .then((category) => {
+        res.render("category/index" , {category});
     })
     .catch((err) => {
         console.log(err);
-        res.send("Please try again later!!")
     })
-}
+    }
 
 exports.category_index_get = (req, res) => {
     //put the place name n the category
