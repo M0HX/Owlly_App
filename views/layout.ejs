@@ -31,9 +31,9 @@
 
         </div>
         
-        </header>
+    </header>
     
-    <!-- <nav>
+    <nav>
       <% if(user) { %>
         <% if(user.isAdmin) { %>
           <a href="/category/add" class="btn btn-outline-primary">Add Category</a>
@@ -45,18 +45,16 @@
           <a href="/logout" class="btn btn-outline-primary">Logout</a>
           <!-- Hi <a href="/user/index"><%= user.name %></a>  -->
           
-        <!-- <% } else { %>
+         <% } else { %>
           <a href="/place/index" class="btn btn-outline-primary">Place</a>
           <a href="/Category/index" class="btn btn-outline-primary">Category</a>
-          <!-- <a href="/author/index" class="btn btn-outline-primary">Authors</a> -->
-          <!-- <a href="/auth/google" class="btn btn-outline-primary">Signin</a>
-        <%  } %> -->
+          <a href="/author/index" class="btn btn-outline-primary">Authors</a> 
+          <a href="/auth/google" class="btn btn-outline-primary">Signin</a>
+        <%  } %>
     
       </nav>   
     
-    <!-- <%- body %> -->
-
-
+    <%- body %>
 
 <main class="homeMain">
 
