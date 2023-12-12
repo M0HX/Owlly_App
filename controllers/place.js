@@ -24,6 +24,7 @@ exports.place_create_post = (req , res) => {
     //Empede schema
 //     console.log(req.body);
     let place = new Place(req.body)
+    
 // Category.findById(req.body.category)
 // .then((category) => {
 //     category.place.push(place);
@@ -65,7 +66,7 @@ Place.find().populate('category')
 })
 }
 exports.place_show_get = (req, res) => {
-    console.log(req.query.id);
+    console.log("place id: " + req.query.id);
     Place.findById(req.query.id).populate('category')
     .then((place) => {
         console.log(place)
@@ -129,6 +130,7 @@ exports.review_create_post = (req, res) => {
     console.log(req.body); //check if we're getting req.body
     let review = new Review(req.body);
 
+   
     // Save Review
     review.save()
     .then(() => {
