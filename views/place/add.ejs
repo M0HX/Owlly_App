@@ -1,36 +1,27 @@
-<div class="form-style-6">
+<div class="container-fluid form-style-6 d-flex flex-column justify-content-center align-items-center" style="width: 600px;">
     <h2>Add Place</h2>
-
-
     <form method="POST" action="/place/add">
-        <div>
-            <label>Name: </label>
-            <input type="text" name="name" class="form-control">
-        </div>
-
-        <div>
-            <label>Content: </label>
-            <input type="text" name="content" class="form-control">
-        </div>
-
-
-        <div>
-            <label>Place Picture:</label>
-            <img src="<%= place.placeImg %>"><br>
-            <input type="file" name="placeImg" accept="image/*">
-        </div>
-
-        <div>
-            <label>Category: </label>
-            <select name="category" class="form-control">
-                <% categorys.forEach(function(category) { %>
-                    <option value="<%= category._id %>"><%= category.name %></option>
-               
-                <% }); %>
-            </select>
+        <div class="row">
+            <div class="col-12 mb-2">
+                <label class="d-flex justify-content-start">Name: </label>
+                <input type="text" name="name" class="form-control">
+            </div>
+            <div class="col-12 mb-2">
+                <label class="d-flex justify-content-start">Content: </label>
+                <input type="text" name="content" class="form-control">
+            </div>
+            <div class="col-12">
+                <label class="d-flex justify-content-start">Category: </label>
+                <select name="category" class="form-control">
+                    <% categorys.forEach(function(category) { %>
+                        <option value="<%= category._id %>"><%= category.name %></option>
+                
+                    <% }); %>
+                </select>
+            </div>
         </div>
         
-        <br>
+       
         <button type="submit" class=" navList">Add Place</button>
     </form>
 </div>

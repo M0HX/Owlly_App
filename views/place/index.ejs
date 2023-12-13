@@ -1,47 +1,20 @@
-<h1>Places</h1>
+<h2>Places</h2>
 
-<table class="table table-dark table-hover">
-    <tr>
-        <th>Name</th>
-        <% if(user) { %>
-
-                <% if(user.isAdmin ) { %>
- <th>Delete</th>
-        <th>Edit</th>
-
-            <% } %>
-            <% } %>
-       
-    </tr>
-
-
+<div class="row">
     <% places.forEach(function(place) { %>
-        <tr>
-            <td>
-                <a href="/place/detail?id=<%= place._id %>"> 
+        <div class="col-lg-4">
+            <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="var(--bs-secondary-color)"></rect></svg>
+            <h5 class="fw-normal"><a href="/place/detail?id=<%= place._id %>"> 
                     <%= place.name %> 
                 </a> 
-            </td>
-            <% if(user) { %>
+            </h2>
+                <% if(user) { %>
+                    <% if(user.isAdmin ) { %>
+                        <a href="/place/delete?id=<%= place._id %>">Delete</a>
+                        <a href="/place/edit?id=<%= place._id %>"> - Edit</a>
+                        <% } %>
+                        <% } %>
+                    </div>
 
-                <% if(user.isAdmin ) { %>
-
-            <td>
-            <form method="POST" action="/place/delete?id=<%= place._id %>&_method=delete">
-                <button type="submit" class="btn btn-danger">Delete</button>
-            </form>
-            </td>
-
-            <td>
-            <form method="GET" action="/place/edit?id=<%= place._id %>">
-                <input type="hidden" name="id" value="<%= place._id %>">
-                <button type="submit" class="btn btn-secondary">Edit</button>
-            </form>
-            </td>
-            <% } %>
-            <% } %>
-        </tr>
-    <% }) %>
-    
-
-</table>
+                <% }) %>
+      </div>
