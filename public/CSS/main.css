@@ -7,7 +7,13 @@ body{
     padding: 5px;
     
 }
-
+.divider{
+    display: block;
+  margin-left: auto;
+  margin-right: auto;
+padding: 6px;   
+   }
+   
  a{
    color: black;
     text-decoration: none;
@@ -139,7 +145,7 @@ height: 100px;
     color: rgb(103, 100, 100);
 }
 
-}
+
 .center{
     text-align:  center;
 }
@@ -154,6 +160,7 @@ height: 100px;
 h2{
     font-family: 'Trocchi', sans-serif;
     text-align: center;
+    color: rgb(137, 21, 21);
 }
 .profilePic{
     width:25%;
@@ -185,6 +192,12 @@ label{
 
 }
 .LeftButton{
-    margin-right: 31%;
+    margin-right: 30%;
+    padding: 5px;
+    width:15%;
 }
-
+.LeftButton1{
+    margin-right: 30%;
+    padding: 5px;
+    width:30%;
+}
