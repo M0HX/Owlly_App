@@ -20,41 +20,49 @@ exports.place_create_get = (req, res) => {
     })
 }
     //save  category inside place
-exports.place_create_post = (req , res) => {
-    //Empede schema
-//     console.log(req.body);
-    let place = new Place(req.body)
+    exports.place_create_post = (req, res) => {
+        const place = new Place(req.body);
     
-// Category.findById(req.body.category)
-// .then((category) => {
-//     category.place.push(place);
-//     category.save();
-//     res.redirect("/category/index");
-// })
-// .catch((err) => {
-//     console.log(ree);
-// })
-//Save place
-place.save()
-    .then(() => {
-        console.log(req.body)
-        req.body.category.forEach(category => {
-            Category.findById(category)
-            .then((category) => {
-                category.place.push(place);
-                category.save();
+        place.save()
+            .then((savedPlace) => {
+                console.log('Saved place:', savedPlace);
+    
+                const categoryIds = Array.isArray(req.body.category) ? req.body.category : [req.body.category]; // Ensure categoryIds is an array
+                console.log('Category IDs:', categoryIds);
+    
+                Promise.all(categoryIds.map(categoryId => {
+                    return Category.findById(categoryId)
+                        .then((category) => {
+                            if (category) {
+                                console.log('Found category:', category);
+                                category.place.push(savedPlace);
+                                return category.save();
+                            } else {
+                                console.log(`Category not found with ID: ${categoryId}`);
+                            }
+                        })
+                        .catch(err => {
+                            console.log(err);
+                        });
+                }))
+                .then(() => {
+                    res.redirect("/place/index");
+                })
+                .catch((err) => {
+                    console.log(err);
+                    res.send("Please try again later!!");
+                });
             })
-            .catch(err => {
+            .catch((err) => {
                 console.log(err);
-            })
-        });
-        res.redirect("/place/index");
-    })
-    .catch((err) => {
-        console.log(err);
-        res.send("Please try again later!!")
-    })
-}
+                res.send("Please try again later!!");
+            });
+    };
+    
+    
+
+
+
 exports.place_index_get = (req, res) => {
     //put the category name n the place
 Place.find().populate('category')
