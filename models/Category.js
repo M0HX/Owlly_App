@@ -6,7 +6,7 @@ const categorySchema = mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Place'
   }],
-  categoryImg: String, // Add this property for the category image
+  categoryImg: String,
 },);
 
 // Creating Model 

@@ -1,5 +1,5 @@
 //API's/ function
-// const upload = require('../config/multer'); // Adjust the path accordingly
+// const upload = require('../config/multer');
 const {Place} = require("../models/Place")
 const {Category} = require("../models/Category")
 const {Review} = require("../models/Review");
@@ -93,7 +93,7 @@ exports.place_show_get = (req, res) => {
                 .populate('user')
                 .then((reviews) => {
                     console.log('Fetched reviews:', reviews);
-                    res.render("place/detail", { place, reviews }); // Pass both place and reviews to the template
+                    res.render("place/detail", { place, reviews });
                 })
                 .catch((err) => {
                     console.log(err);
