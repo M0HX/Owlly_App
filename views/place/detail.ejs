@@ -1,7 +1,7 @@
 <div class="center">
-    <div >
-      <h3><%= place.name %></h3>
-    </div>
+  <div >
+    <h3><%= place.name %></h3>
+  </div>
 </div>
 
 <br>
@@ -13,14 +13,21 @@
 </div>
 
 <!-- Reviews -->
-
 <div>
   <div>
     <p>
-      <% if (place && place.review && place.review.length > 0) { %>
-        <% place.review.forEach(function(review) { %>
-          <!-- Access properties of the 'review' object as needed -->
-          <%= review.propertyName %>
+      <% if (reviews && reviews.length > 0) { %>
+        <% reviews.forEach(function(review) { %>
+          <!-- Display review details -->
+          <p>
+            <strong>User:</strong>
+            <% if (review.reviewerName) { %>
+              <%= review.reviewerName %><br>
+            <% } else { %>
+              User information not available<br>
+            <% } %>
+            <strong>Review:</strong> <%= review.reviewContent %><br>
+          </p>
         <% }); %>
       <% } else { %>
         <!-- else no reviews found -->
@@ -30,32 +37,31 @@
   </div>
 </div>
 
-<form method="POST" action="/review/add">
-
- <input type="hidden" name="placeID" value="<%= place._id %>"/>
-
- <input type="hidden" name="userID" value="<%= user._id %>"/>
-
+<% if (user && user._id) { %>
+  <form method="POST" action="/review/add">
+    <input type="hidden" name="placeID" value="<%= place._id %>"/>
+    <input type="hidden" name="userID" value="<%= user._id %>"/>
 
     <div>
-        <label> Review </label>
-        <input type="text" name="reviewContent" class="form-control bg-dark text-light"/>
+      <label> Review </label>
+      <input type="text" name="reviewContent" class="form-control bg-dark text-light"/>
     </div>
-       
-    <br>
-   <button type="submit" class="btn btn-primary">Add Review</button>
-</form> 
 
-</div>
+    <br>
+    <button type="submit" class="btn btn-primary">Add Review</button>
+  </form>
+<% } else { %>
+  <!-- else user not logged in -->
+  <p>Login to add a review.</p>
+<% } %>
 
 <br>
+
 <% place.category.forEach(function(category) { %>
-<hr>
-
-
-<div>
-  <div class="category">Category: <a href="/category/detail?id=<%= category._id %>"><%= category.name %></div></a>
-</div>
-
+  <hr>
+  <div>
+    <div class="category">
+      Category: <a href="/category/detail?id=<%= category._id %>"><%= category.name %></a>
+    </div>
+  </div>
 <% }) %></br>
-

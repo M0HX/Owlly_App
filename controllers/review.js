@@ -27,30 +27,29 @@ exports.review_create_get = (req, res) => {
 }
 
 exports.review_create_post = (req, res) => {
-    console.log(req.body); // Check if we're getting req.body stuff
+    console.log(req.body);
 
-    // Assuming that you have set up your authentication middleware to store user information in req.user
     const userID = req.user._id;
-    console.log('UserID:', userID);
+    const userName = req.user.name;
 
     let review = new Review({
-        content: req.body.reviewContent,
-        place: req.body.placeID, // Step 2: Link the review to the place
-        user: userID,   // Use the user ID from the session
+        reviewContent: req.body.reviewContent,
+        placeID: req.body.placeID,
+        userID: userID,
+        reviewerName: userName // reviewer's name
     });
-    console.log('Review:', review);
 
     // Save Review
     review.save()
         .then(() => {
-            console.log('Review saved successfully');
             res.redirect("/review/index");
         })
         .catch((err) => {
             console.log(err);
             res.send("Please try again later.");
         });
-}
+};
+
 
 
 exports.review_index_get = (req, res) => {
@@ -66,15 +65,21 @@ exports.review_index_get = (req, res) => {
 
 exports.review_show_get = (req, res) => {
     console.log(req.query.id);
-    Review.find({ place: req.query.id }).populate('user')
+
+    Review.find({ placeID: req.query.id })
+        .populate('user')
         .then((reviews) => {
+            console.log('Fetched reviews:', reviews);
             res.render("review/detail", { reviews });
         })
         .catch((err) => {
             console.log(err);
-            res.send("Please try again later.")
+            res.send("Please try again later.");
         });
-}
+};
+
+
+
 
 exports.review_delete_get = (req, res) => {
     console.log(req.query.id);
