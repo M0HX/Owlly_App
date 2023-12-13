@@ -16,6 +16,7 @@ const reviewSchema = mongoose.Schema({
     },
     reviewContent: String,
     reviewerName: String, // reviewer's name
+    reviewImg: String,
 }, {
     timestamps: true
 });

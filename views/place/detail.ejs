@@ -1,4 +1,4 @@
-<div>
+<div class="center">
   <div>
     <h3><%= place.name %></h3>
   </div>
@@ -6,7 +6,7 @@
 
 <br>
 
-<div>
+<div class="photo">
   <div>
     <p><%= place.content %></p>
   </div>
@@ -28,6 +28,8 @@
             <% } %>
             <strong>Review:</strong> <%= review.reviewContent %><br>
           </p>
+          <!-- Display review images -->
+          <img src="<%= review.reviewImg %>"><br>
         <% }); %>
       <% } else { %>
         <!-- else no reviews found -->
@@ -38,13 +40,16 @@
 </div>
 
 <% if (user && user._id) { %>
-  <form method="POST" action="/review/add">
+  <form method="POST" action="/review/add" enctype="multipart/form-data">
     <input type="hidden" name="placeID" value="<%= place._id %>"/>
     <input type="hidden" name="userID" value="<%= user._id %>"/>
 
     <div>
       <label> Review </label>
       <input type="text" name="reviewContent" class="form-control bg-dark text-light"/>
+      <label>Review Picture:</label>
+      <!-- Input field for review image -->
+      <input type="file" name="reviewImg">
     </div>
 
     <br>

@@ -1,5 +1,4 @@
 // API's / Functions
-
 const User = require("../models/User");
 
 

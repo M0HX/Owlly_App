@@ -1,11 +1,14 @@
-<h1>Add Category</h1>
+<div>
+    <div >
+      <h3><%= category.name %></h3>
+    </div>
+</div>
+
+<br>
 
 <form method="POST" action="/category/detail">
 
     <div>
-        <label> Category Name </label>
-        <input type="text" name="name" class="form-control bg-dark text-light"/>
+        Place: <%= category.place.map(a => a.name).join(', ')%>
     </div>
-       <br>
-    <button type="submit" class="btn btn-primary">Create Category</button>
 </form> 
