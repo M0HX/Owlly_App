@@ -49,8 +49,10 @@ app.use(function(req,res,next){
 //Node.js to look for all the static file in public folder (CSS, JS, AUDIO)
 app.use(express.static(__dirname + '/public'));
 
+
 // Ensure that the uploads directory is publicly accessible or serve it as a static directory using Express
 app.use('/uploads', express.static('public/uploads'));
+
 
 //Nodejs to look into the folder called views for all the ejs files
 app.set("view engine", "ejs");
