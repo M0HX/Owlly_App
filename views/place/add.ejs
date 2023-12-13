@@ -1,16 +1,16 @@
 <div class="form-style-6">
-    <h1>Add Place</h1>
+    <h2>Add Place</h2>
 
 
     <form method="POST" action="/place/add" enctype="multipart/form-data">
         <div>
             <label>Name: </label>
-            <input type="text" name="name" class="form-control bg-dark text-light">
+            <input type="text" name="name" class="form-control">
         </div>
 
         <div>
             <label>Content: </label>
-            <input type="text" name="content" class="form-control bg-dark text-light">
+            <input type="text" name="content" class="form-control">
         </div>
 
 
@@ -22,7 +22,7 @@
 
         <div>
             <label>Category: </label>
-            <select name="category" class="form-control bg-dark text-light">
+            <select name="category" class="form-control">
                 <% categorys.forEach(function(category) { %>
                     <option value="<%= category._id %>"><%= category.name %></option>
                
@@ -31,6 +31,6 @@
         </div>
         
         <br>
-        <input type="submit" class="btn btn-primary" value="Add Place">
+        <button type="submit" class="btn btn-primary">Add Place</button>
     </form>
 </div>
