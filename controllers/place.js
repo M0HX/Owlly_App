@@ -1,8 +1,19 @@
 //API's/ function
-const upload = require('../config/multer'); // Adjust the path accordingly
+// const upload = require('../config/multer'); // Adjust the path accordingly
 const {Place} = require("../models/Place")
 const {Category} = require("../models/Category")
 const {Review} = require("../models/Review");
+
+const multer = require('multer');
+var storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+      cb(null, './public/uploads/')
+    },
+    filename: function (req, file, cb) {
+      cb(null, file.fieldname + '-' + Date.now() + '-' + file.originalname)
+    }
+  })
+  let upload = multer({ storage: storage })
 
 
 //CRUD Operations
