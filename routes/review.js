@@ -3,6 +3,19 @@ const express = require('express');
 const methodOverride = require('method-override');
 
 
+// Multer
+const multer = require('multer');
+var storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+      cb(null, './public/uploads/')
+    },
+    filename: function (req, file, cb) {
+      cb(null, file.fieldname + '-' + Date.now() + '-' + file.originalname)
+    }
+  })
+  let upload = multer({ storage: storage })
+
+
 
 // Initialize Router Functionality from express framework.
 const router = express.Router();
@@ -16,9 +29,9 @@ router.use(methodOverride("_method"));
 const reviewCntrl = require("../controllers/review");
 
 // Routes
-router.get("/add", reviewCntrl.review_create_get);
+router.get("/add",reviewCntrl.review_create_get);
 
-router.post("/add", reviewCntrl.review_create_post);
+router.post("/add", upload.single('reviewImg'), reviewCntrl.review_create_post);
 
 router.get("/index", reviewCntrl.review_index_get);
 

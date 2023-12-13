@@ -1,7 +1,11 @@
 //API's/ function
+// const upload = require('../config/multer'); // Adjust the path accordingly
 const {Place} = require("../models/Place")
 const {Category} = require("../models/Category")
 const {Review} = require("../models/Review");
+
+
+
 
 
 //CRUD Operations
@@ -12,65 +16,51 @@ const {Review} = require("../models/Review");
 //Create operations
 exports.place_create_get = (req, res) => {
     Category.find()
-    .then((categorys) =>{
-        res.render("place/add" , {categorys});
-    })
-    .catch( err =>{
-        console.log(err);
-    })
-}
-    //save  category inside place
-exports.place_create_post = (req, res) => {
-    const place = new Place(req.body);
-
-    // Handle file upload using multer
-    upload.single('placeImg')(req, res, function (err) {
-        if (err) {
+        .then((categorys) => {
+            // Pass an empty place object for the add page
+            res.render('place/add', { categorys, place: {} });
+        })
+        .catch((err) => {
             console.log(err);
-            return res.send('Error uploading file.');
+            res.send('Please try again later.');
+        });
+};
+    //save  category inside place
+    exports.place_create_post = (req, res) => {
+        // Example route using Multer
+        // upload.single('placeImg')(req, res, function (err) {
+        //     if (err) {
+        //         console.log(err);
+        //         return res.send('Error uploading file.');
+        //     }
+        console.log("req.body", req.body)
+    
+        console.log("req.file", req.file)
+        if(req.file) {
+        req.body.placeImg = "/uploads/" + req.file.filename
+        } else {
+            req.body.placeImg = "/uploads/default.png";
         }
-
-        // File upload was successful, update placeImg property
-        if (req.file) {
-            place.placeImg = req.file.path;
-        }
-
-        place.save()
-            .then((savedPlace) => {
-                console.log('Saved place:', savedPlace);
-
-                const categoryIds = Array.isArray(req.body.category) ? req.body.category : [req.body.category];
-                console.log('Category IDs:', categoryIds);
-
-                Promise.all(categoryIds.map(categoryId => {
-                    return Category.findById(categoryId)
-                        .then((category) => {
-                            if (category) {
-                                console.log('Found category:', category);
-                                category.place.push(savedPlace);
-                                return category.save();
-                            } else {
-                                console.log(`Category not found with ID: ${categoryId}`);
-                            }
-                        })
-                        .catch(err => {
-                            console.log(err);
-                        });
-                }))
-                .then(() => {
+            const place = new Place(req.body);
+            
+            // Handle file upload using multer
+            // File upload was successful, update placeImg property
+            // if (req.file) {
+            //     place.placeImg = req.file.path;
+            // }
+    
+            place.save()
+                .then((savedPlace) => {
+                    console.log('Saved place:', savedPlace);
+    
                     res.redirect("/place/index");
                 })
                 .catch((err) => {
                     console.log(err);
-                    res.send("Please try again later!!");
+                    res.send('Please try again later.');
                 });
-            })
-            .catch((err) => {
-                console.log(err);
-                res.send("Please try again later!!");
-            });
-    });
-};
+        // });
+    };
     
     
 
@@ -80,7 +70,14 @@ exports.place_index_get = (req, res) => {
     //put the category name n the place
 Place.find().populate('category')
 .then((places) => {
-    res.render("place/index" , {places});
+    Review.find()
+    .then(review=>{
+        res.render("place/index" , {places,review});
+    })
+    .catch(err=>{
+        console.log(err);
+    })
+
 })
 .catch((err) => {
     console.log(err);
@@ -93,10 +90,10 @@ exports.place_show_get = (req, res) => {
         .populate('category')
         .then((place) => {
             Review.find({ placeID: req.query.id })
-                .populate('user')  // populate
+                .populate('user')
                 .then((reviews) => {
                     console.log('Fetched reviews:', reviews);
-                    res.render("place/detail", { place, reviews });
+                    res.render("place/detail", { place, reviews }); // Pass both place and reviews to the template
                 })
                 .catch((err) => {
                     console.log(err);
@@ -107,6 +104,8 @@ exports.place_show_get = (req, res) => {
             console.log(err);
         });
 };
+
+
 
 
 

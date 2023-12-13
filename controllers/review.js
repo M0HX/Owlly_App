@@ -39,6 +39,12 @@ exports.review_create_post = (req, res) => {
         reviewerName: userName // reviewer's name
     });
 
+    // Handle file upload using multer
+    if (req.file) {
+        // Save the file path to the database
+        review.reviewImg = "/uploads/" + req.file.filename;
+    }
+
     // Save Review
     review.save()
         .then(() => {
