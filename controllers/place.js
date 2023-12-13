@@ -20,16 +20,28 @@ exports.place_create_get = (req, res) => {
     })
 }
     //save  category inside place
-    exports.place_create_post = (req, res) => {
-        const place = new Place(req.body);
-    
+exports.place_create_post = (req, res) => {
+    const place = new Place(req.body);
+
+    // Handle file upload using multer
+    upload.single('placeImg')(req, res, function (err) {
+        if (err) {
+            console.log(err);
+            return res.send('Error uploading file.');
+        }
+
+        // File upload was successful, update placeImg property
+        if (req.file) {
+            place.placeImg = req.file.path;
+        }
+
         place.save()
             .then((savedPlace) => {
                 console.log('Saved place:', savedPlace);
-    
-                const categoryIds = Array.isArray(req.body.category) ? req.body.category : [req.body.category]; // Ensure categoryIds is an array
+
+                const categoryIds = Array.isArray(req.body.category) ? req.body.category : [req.body.category];
                 console.log('Category IDs:', categoryIds);
-    
+
                 Promise.all(categoryIds.map(categoryId => {
                     return Category.findById(categoryId)
                         .then((category) => {
@@ -57,7 +69,8 @@ exports.place_create_get = (req, res) => {
                 console.log(err);
                 res.send("Please try again later!!");
             });
-    };
+    });
+};
     
     
 

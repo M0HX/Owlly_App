@@ -7,6 +7,7 @@ const placeSchema = mongoose.Schema({
     placeID: String,
     name: String,
     content: String,
+    placeImg: String,
     category: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Category'
