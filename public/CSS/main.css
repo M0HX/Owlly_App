@@ -21,6 +21,9 @@ body{
 
 .owllyFooter{
     background-color: #EFECE9;
+    position: relative;
+    bottom: 0;
+    width: 100%;
 }
 
 .LogoOwlly{
@@ -139,7 +142,7 @@ height: 100px;
     color: rgb(103, 100, 100);
 }
 
-}
+
 .center{
     text-align:  center;
 }
