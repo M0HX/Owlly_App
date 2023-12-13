@@ -70,7 +70,14 @@ exports.place_index_get = (req, res) => {
     //put the category name n the place
 Place.find().populate('category')
 .then((places) => {
-    res.render("place/index" , {places});
+    Review.find()
+    .then(review=>{
+        res.render("place/index" , {places,review});
+    })
+    .catch(err=>{
+        console.log(err);
+    })
+
 })
 .catch((err) => {
     console.log(err);
