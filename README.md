@@ -4,21 +4,31 @@ Owlly Application:
     Project Made by Group Seven; Mohammed Nasser, Marwa AlKhashram, and Samia Jamal.
 
 Owlly Logo
-![Image](Wireframes and Prototype Here!)
+![Image](./public/images/Owlly-Logo-readme.png)
 
 Description
     Owlly is an Entertainment Application targeted to users that seek to discover the entertaining locations and activities in Bahrain. Owlly will be available for all audiences that range from Bahrainis and tourists that wish to seek enjoyable outdoor activities. 
 
-Instructions of the Application
-    
+Instructions of the Application: About Owlly Application
+Viewer will be able to Sign up using their google account and proceed to view the places by browsing through the categories and the places to discover Bahrain. The application targets people that wants to experience a memorable time. Adding a review to the places will help share the spent time of enjoyment with other people. 
 
-WireFrame
-![Image](Wireframes and Prototype Here!)
+Users can click on their username and edit their information, furthermore, they can upload profile pictures from their devices. 
+
+An admin will be able to Login and make the necessary changes such as adding a place with the content and uploaded content. Along with the addition of categories and uploaded pictures. Admins also have the permissions to delete categories, places, and reviews. 
+
+WireFrame:
+The designed wireframes to understand the concept of the application and structure. The displayed wireframes are for the home page, category details, place details, and reviews.
+![Image](./public/images/homepage-readme.png)
+![Image](./public/images/restaurant-readme.png)
+![Image](./public/images/places-detail-readme.png)
+![Image](./public/images/review-readme.png)
+
 
 Entity Relationship Diagram
-![Image](./public/images/OWLLY-ERD.drawio.png)
+![Image](./public/images/Owlly-ERD-readme.drawio.png)
 
 Trello Board
+![Link](https://trello.com/invite/b/UlNrKvw2/ATTI9c64075675f4b9c53e7bfd428e725b1c8624AFEB/project-2-sei7)
 
 User Stories
     - User must be able to Sign Up.
@@ -57,5 +67,6 @@ Modules/Languages/Libraries Used For The Projects
     - JavaScript
     - Bootstrap
 
-Future Enhancement
+Future Enhancement of Owlly Application
+
 
