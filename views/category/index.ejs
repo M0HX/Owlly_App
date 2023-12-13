@@ -15,7 +15,11 @@
   <% categorys.forEach(function(category){ %>
 
     <tr>
-        <td> <%= category.name %> </td>
+      <td>
+        <a href="/category/detail?id=<%= category._id %>"> 
+            <%= category.name %> 
+        </a> 
+    </td>
         <% if(user) { %>
 
           <% if(user.isAdmin ) { %>
