@@ -4,16 +4,8 @@ const {Place} = require("../models/Place")
 const {Category} = require("../models/Category")
 const {Review} = require("../models/Review");
 
-const multer = require('multer');
-var storage = multer.diskStorage({
-    destination: function (req, file, cb) {
-      cb(null, './public/uploads/')
-    },
-    filename: function (req, file, cb) {
-      cb(null, file.fieldname + '-' + Date.now() + '-' + file.originalname)
-    }
-  })
-  let upload = multer({ storage: storage })
+
+
 
 
 //CRUD Operations
@@ -44,9 +36,13 @@ exports.place_create_get = (req, res) => {
         console.log("req.body", req.body)
     
         console.log("req.file", req.file)
+        if(req.file) {
         req.body.placeImg = "/uploads/" + req.file.filename
+        } else {
+            req.body.placeImg = "/uploads/default.png";
+        }
             const place = new Place(req.body);
-    
+            
             // Handle file upload using multer
             // File upload was successful, update placeImg property
             // if (req.file) {
@@ -57,7 +53,7 @@ exports.place_create_get = (req, res) => {
                 .then((savedPlace) => {
                     console.log('Saved place:', savedPlace);
     
-                    // ... rest of the route handling ...
+                    res.redirect("/place/index");
                 })
                 .catch((err) => {
                     console.log(err);
