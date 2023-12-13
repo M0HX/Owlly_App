@@ -9,12 +9,16 @@ Owlly Logo
 Description
     Owlly is an Entertainment Application targeted to users that seek to discover the entertaining locations and activities in Bahrain. Owlly will be available for all audiences that range from Bahrainis and tourists that wish to seek enjoyable outdoor activities. 
 
+Instructions of the Application
+    
+
 WireFrame
 ![Image](Wireframes and Prototype Here!)
 
 Entity Relationship Diagram
-
 ![Image](./public/images/OWLLY-ERD.drawio.png)
+
+Trello Board
 
 User Stories
     - User must be able to Sign Up.
@@ -39,7 +43,7 @@ Admin Stories
     - Admin must be able to View Users information.
     - Admin must be able to Delete a User.
    
-Modules/Languages Used For The Projects
+Modules/Languages/Libraries Used For The Projects
     - NodeJS
     - Express
     - EJS 
@@ -51,3 +55,7 @@ Modules/Languages Used For The Projects
     - HTML
     - CSS
     - JavaScript
+    - Bootstrap
+
+Future Enhancement
+
