@@ -8,22 +8,32 @@
     <title>Owlly</title>
 </head>
 <body>
-    <header class="owllyHeader">
+    <header class="owllyHeader d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
         <img src="/images/OwllyLogo.png" class="LogoOwlly" alt="Owlly Logo" />
     
         <div class="navHeader">
             <nav class="headerNav">
                 <ul class="navUL">
-                    <li class="navList"><a href="#">Home</a></li>
-                    <li class="navList"><a href="#">About Us</a></li>
+                    <li class="navList"><a href="/">Home</a></li>
+                    <li class="navList"><a href="/place/index">Places</a></li>
                     <li class="navList"><a href="/category/index">Category</a></li>
-                    <div><li class="navList"> <% if(user) { %>
-                    <a href="/logout" class="HeaderLogout">Logout</a></div>
+                    <% if(user) { %>
+                     <% if(user.isAdmin) { %>
+                    <li class="navList"><a href="/category/add">Add Category</a></li>
+                    <li class="navList"><a href="/place/add">Add Place</a></li>
+                    <% } %>
+                    <!-- <li class="navList"><a href="/place/index">Places</a></li>
+                    <li class="navList"><a href="/category/index">Category</a></li> -->
+                   <li class="navList"><a href="/logout" class="HeaderLogout">Logout</a></div>
                     Hi, <a href="/user/index" class="ms-1"> <%= user.name %>!</a> 
+
                     <% } else { %>
-                    <a href="/auth/google" class="HeaderLogout">Sign In</a>
+                        <li class="navList"><a href="/auth/google" class="HeaderLogout">Sign In</a>
                     <%  } %>
                     </li>
+
+                    
+
                 </ul>
             </nav>
 
@@ -31,37 +41,47 @@
         
     </header>
     
-    <nav>
-      <% if(user) { %>
-        <% if(user.isAdmin) { %>
-          <a href="/category/add" class="btn btn-outline-primary">Add Category</a>
-          <a href="/place/add" class="btn btn-outline-primary">Add Place</a>
-          <%}%>
-          <a href="/category/index" class="btn btn-outline-primary">Category</a>
-          <a href="/place/index" class="btn btn-outline-primary">Place</a>
+    <!-- <nav>
+      <!-- <% if(user) { %> -->
+        <!-- <% if(user.isAdmin) { %> -->
+          <!-- <a href="/category/add" class="btn btn-outline-primary">Add Category</a>
+          <a href="/place/add" class="btn btn-outline-primary">Add Place</a> -->
+          <!-- <%}%> -->
+          <!-- <a href="/category/index" class="btn btn-outline-primary">Category</a> -->
+          <!-- <a href="/place/index" class="btn btn-outline-primary">Place</a> -->
           <!-- <a href="/review/add" class="btn btn-outline-primary">Add Review</a> -->
-          <a href="/review/index" class="btn btn-outline-primary">Reviews</a>
-          <a href="/logout" class="btn btn-outline-primary">Logout</a>
+          <!-- <a href="/review/index" class="btn btn-outline-primary">Reviews</a> -->
+          <!-- <a href="/logout" class="btn btn-outline-primary">Logout</a> -->
           <!-- Hi <a href="/user/index"><%= user.name %></a>  -->
+
           
-      <% } else { %>
-          <a href="/place/index" class="btn btn-outline-primary">Place</a>
-          <a href="/Category/index" class="btn btn-outline-primary">Category</a>
+      <!-- <% } else { %> -->
+          <!-- <a href="/place/index" class="btn btn-outline-primary">Place</a> -->
+          <!-- <a href="/Category/index" class="btn btn-outline-primary">Category</a> -->
           <!-- <a href="/author/index" class="btn btn-outline-primary">Authors</a> -->
-         <a href="/auth/google" class="btn btn-outline-primary">Signin</a>
-        <%  } %> 
+         <!-- <a href="/auth/google" class="btn btn-outline-primary">Signin</a> -->
+        <!-- <%  } %>  -->
     
-      </nav>   
+      </nav>  
     
       <%- body %> 
 
 
 
-<main class="homeMain">
 
 
+<!-- footer here -->
 
-</main>
+<div class="owllyFooter">
+    <footer class="py-3">
+      <ul class="nav justify-content-center border-bottom pb-2 mb-3">
+        <li class="nav-item"><a href="/" class="nav-link px-2 footerp">Home</a></li>
+        <li class="nav-item"><a href="/place/index" class="nav-link px-2 footerp">Places</a></li>
+        <li class="nav-item"><a href="/category/index" class="nav-link px-2 footerp">Category</a></li>
+      </ul>
+      <p class="text-center footerinc">© 2023 Owlly, Inc</p>
+    </footer>
+  </div>
 
 </body>
 </html>
