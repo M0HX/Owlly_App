@@ -1,10 +1,11 @@
-<h1>User Profile</h1>
+<div class="profile">
+<h2>User Profile</h2>
 
-<form method="POST" action="/user/update?id=<%= user._id %>" enctype="multipart/form-data">
+<form method="POST" action="/user/update?id=<%= user._id %>" enctype="multipart/form-data" >
    
     <div>
         <label>Name:</label>
-        <input type="text" name="name" value="<%= user.name %>" class="form-control bg-dark text-light">
+        <input type="text" name="name" value="<%= user.name %>" class="form-control">
     </div>
 
     <br>
@@ -16,7 +17,7 @@
     <!-- Displayed user type -->
     <div>
         <label>User Type:</label>
-        <input type="text" name="displayedUserType" value="<%= user.isAdmin ? 'admin' : 'user' %>" class="form-control bg-dark text-light" readonly>
+        <input type="text" name="displayedUserType" value="<%= user.isAdmin ? 'admin' : 'user' %>" class="form-control" readonly>
     </div>
 
 
@@ -24,18 +25,18 @@
 
     <div>
         <label>Email Address:</label>
-        <input type="text" name="readOnly-email" value="<%= user.email %>" class="form-control bg-dark text-light" readonly>
+        <input type="text" name="readOnly-email" value="<%= user.email %>" class=" form-control " readonly>
     </div>
 
     <br>
     
     <div>
         <label>Profile Picture:</label>
-        <img src="<%= user.avatar %>"><br>
+        <img src="<%= user.avatar %>" class="profilePic "><br>
         <input type="file" name="avatarImg" accept="image/*">
     </div>
        
-    <br>
-
-   <button type="submit" class="btn btn-primary">Update Profile</button>
+   
+</div>
+   <button  type="submit" class="updateButton navList">Update Profile</button>
 </form>

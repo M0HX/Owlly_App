@@ -53,3 +53,41 @@ body{
     width: 100%;
     height: auto;
 }
+.center{
+    text-align:  center;
+}
+.photo{
+    color:black;
+}
+.profile{
+   width: 37%;
+   margin-left: 30%;
+   font-size: 18px;
+}
+h2{
+    font-family: 'Trocchi', sans-serif;
+}
+.profilePic{
+    width:25%;
+}
+.updateButton{
+    margin-left: 46%;
+    font-size:15px;
+    padding: 10px;
+}
+.form-control{
+    background-color: #fffbf3;
+    border: 2px solid rgb(220, 217, 217);
+    border-radius: 5px;
+    width: 37%;
+
+}
+label{
+    font-family: 'Trocchi', sans-serif;
+    font-size: 15px;
+}
+.cat{
+    width: 13%;
+    font-size:15px;
+    padding: 8px;
+}
