@@ -27,6 +27,9 @@ padding: 6px;
 
 .owllyFooter{
     background-color: #EFECE9;
+    position: relative;
+    bottom: 0;
+    width: 100%;
 }
 
 .LogoOwlly{

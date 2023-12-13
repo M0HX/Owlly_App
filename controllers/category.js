@@ -10,19 +10,27 @@ const {Category} = require("../models/Category")
 exports.category_create_get = (req, res) => {
 res.render("category/add");
 }
-exports.category_create_post = (req , res) => {
+
+exports.category_create_post = (req, res) => {
     console.log(req.body);
-    let category = new Category(req.body)
-    //save category
+    let category = new Category({
+        name: req.body.name,
+        categoryImg: req.file ? '/uploads/categories/' + req.file.filename : '/uploads/categories/default.png'
+    });
+
+    // Save category
     category.save()
-    .then(() => {
-        res.redirect("/category/index");
-    })
-    .catch((err) => {
-        console.log(err);
-        res.send("Please try again later!!")
-    })
-}
+        .then(() => {
+            res.redirect("/category/index");
+        })
+        .catch((err) => {
+            console.log(err);
+            res.send("Please try again later!!");
+        });
+};
+
+
+
 exports.category_index_get = (req, res) => {
 Category.find().populate('place')
 .then((categorys) => {

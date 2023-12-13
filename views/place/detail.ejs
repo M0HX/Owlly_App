@@ -1,94 +1,62 @@
-
-<div class="row mb-2  d-flex flex-column justify-content-center align-items-center">
-  <div>
-
-<div class="center">
-
-  <div>
-    <h3><%= place.name %></h3>
-    <img class="divider" src="/images/divider.png">
-
   </div>
- </div>
   <div class="col-md-10">
     <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
       <div class="col-auto d-none d-lg-block">
-        <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+        <!-- Display place image -->
+        <img src="<%= place.placeImg %>" alt="<%= place.name %>" class="bd-placeholder-img" width="200" height="250">
       </div>
       <div class="col p-4 d-flex flex-column position-static">
-        
         <div>
           <div>
             <p><%= place.content %></p>
           </div>
-          <br>
-          <br>
-          <br>
-          <br>
-          <br>
-<% place.category.forEach(function(category) { %>
-  
-  <div>
-    <div class="category">
-      Category: <a href="/category/detail?id=<%= category._id %>"><%= category.name %></a>
-    </div>
-  </div>
-<% }) %>
         </div>
       </div>
     </div>
   </div>
   <!-- Reviews -->
-</div>
-<div>
   <div>
-    <p>
-      <% if (reviews && reviews.length > 0) { %>
-        <% reviews.forEach(function(review) { %>
-          <!-- Display review details -->
-          <p>
-            <strong>User:</strong>
-            <% if (review.reviewerName) { %>
-              <%= review.reviewerName %><br>
-            <% } else { %>
-              User information not available<br>
-            <% } %>
-            <strong>Review:</strong> <%= review.reviewContent %><br>
-          </p>
-          <!-- Display review images -->
-          <img src="<%= review.reviewImg %>"><br>
-        <% }); %>
-      <% } else { %>
-        <!-- else no reviews found -->
-        No reviews available.
-      <% } %>
-    </p>
-  </div>
-</div>
-
-<% if (user && user._id) { %>
-  <form method="POST" action="/review/add" enctype="multipart/form-data">
-    <input type="hidden" name="placeID" value="<%= place._id %>"/>
-    <input type="hidden" name="userID" value="<%= user._id %>"/>
-
     <div>
-      <label> Review </label>
-
-      <input type="text" name="reviewContent" class="form-control"/>
-
-      <input type="text" name="reviewContent" class="form-control bg-dark text-light"/>
-      <label>Review Picture:</label>
-      <!-- Input field for review image -->
-      <input type="file" name="reviewImg">
-
+      <p>
+        <% if (reviews && reviews.length > 0) { %>
+          <% reviews.forEach(function(review) { %>
+            <!-- Display review details -->
+            <p>
+              <strong>User:</strong>
+              <% if (review.reviewerName) { %>
+                <%= review.reviewerName %><br>
+              <% } else { %>
+                User information not available<br>
+              <% } %>
+              <strong>Review:</strong> <%= review.reviewContent %><br>
+              <!-- Display review images -->
+              <img src="<%= review.reviewImg %>" alt="Review Image"><br>
+            </p>
+          <% }); %>
+        <% } else { %>
+          <!-- else no reviews found -->
+          No reviews available.
+        <% } %>
+      </p>
     </div>
-    <br>
-    <button type="submit" class="navList">Add Review</button>
-  </form>
-<% } else { %>
-  <!-- else user not logged in -->
-  <p>Login to add a review.</p>
-<% } %>
+  </div>
+  <% if (user && user._id) { %>
+    <form method="POST" action="/review/add" enctype="multipart/form-data">
+      <input type="hidden" name="placeID" value="<%= place._id %>"/>
+      <input type="hidden" name="userID" value="<%= user._id %>"/>
+      <div>
+        <label> Review </label>
+        <input type="text" name="reviewContent" class="form-control"/>
+        <input type="text" name="reviewContent" class="form-control bg-dark text-light"/>
+        <label>Review Picture:</label>
+        <!-- Input field for review image -->
+        <input type="file" name="reviewImg">
+      </div>
+      <br>
+      <button type="submit" class="navList">Add Review</button>
+    </form>
+  <% } else { %>
+    <!-- else user not logged in -->
+    <p>Login to add a review.</p>
+  <% } %>
 </div>
-
-
