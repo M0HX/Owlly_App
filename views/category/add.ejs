@@ -1,12 +1,15 @@
-<h2>Add Category</h2>
+<div class="">
 
-<form method="POST" action="/category/add">
+ <h2>Add Category</h2>
 
-    <div>
-        <label> Category Name </label>
-        <input type="text" name="name" class="form-control"/>
-    </div>
-   
-       <br>
-    <button type="submit" class="cat navList">Create Category</button>
-</form> 
+  <form method="POST" action="/category/add" class="d-flex flex-column justify-content-center align-items-center">
+        <div>
+            <label class="d-flex justify-content-start align-items-start mb-2"> Category Name: </label>
+
+            <input type="text" name="name" class="form-control" style="width: 600px;">
+        </div>
+       <div class="LeftButton">
+        <button type="submit" class=" cat navList">Create Category</button>
+        </div>
+  </form> 
+</div>

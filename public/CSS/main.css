@@ -5,6 +5,7 @@
 body{
     color: black;
     padding: 5px;
+    
 }
 
  a{
@@ -152,6 +153,7 @@ height: 100px;
 }
 h2{
     font-family: 'Trocchi', sans-serif;
+    text-align: center;
 }
 .profilePic{
     width:25%;
@@ -165,16 +167,24 @@ h2{
     background-color: #fffbf3;
     border: 2px solid rgb(220, 217, 217);
     border-radius: 5px;
-    width: 37%;
-
 }
 label{
     font-family: 'Trocchi', sans-serif;
     font-size: 15px;
 }
+.fw-normal{
+    font-family: 'Trocchi', sans-serif;
+    
+}
+.row{
+    text-align: center;
+}
 .cat{
-    width: 13%;
-    font-size:15px;
-    padding: 8px;
+    width: 90%;
+    font-size: 15px;
+
+}
+.LeftButton{
+    margin-right: 31%;
 }
 

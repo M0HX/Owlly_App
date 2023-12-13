@@ -1,33 +1,23 @@
-<h1> Categories </h1>
-<table>
-    <tr>
-    <th>Title</th>
-    <% if(user) { %>
+<h2> Categories </h2>
 
-      <% if(user.isAdmin ) { %>
-<th>Delete</th>
-<th>Edit</th>
-
-  <% } %>
-  <% } %>   
-    </tr>
-
+<div class="row">
   <% categorys.forEach(function(category){ %>
 
-    <tr>
-      <td>
-        <a href="/category/detail?id=<%= category._id %>"> 
-            <%= category.name %> 
-        </a> 
-    </td>
-        <% if(user) { %>
+  <div class="col-lg-4">
+    <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="var(--bs-secondary-color)"></rect></svg>
+    <h5 class="fw-normal"><a href="/category/detail?id=<%= category._id %>" > 
+      <%= category.name %> 
+  </a> 
+</h2>
+  <% if(user) { %>
 
-          <% if(user.isAdmin ) { %>
-        <td> <a href="/category/delete?id=<%= category._id%>">Delete</a> </td>
-        <td> <a href="/category/edit?id=<%= category._id%>">Edit</a> </td>
-        <% } %>
-        <% } %>
+    <% if(user.isAdmin ) { %>
+ <a href="/category/delete?id=<%= category._id%>">Delete</a>
+  <a href="/category/edit?id=<%= category._id%>"> - Edit</a>
+  <% } %>
+  <% } %>
 
-    </tr>
-<% }) %>
-</table>
+  </div><!-- /.col-lg-4 -->
+  <% }) %> 
+</div>
+
