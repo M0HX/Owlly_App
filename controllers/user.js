@@ -1,5 +1,5 @@
 // API's / Functions
-
+const upload = require('../config/multer'); // Adjust the path accordingly
 const User = require("../models/User");
 
 
@@ -27,20 +27,27 @@ exports.user_create_get = (req, res) => {
 }
 
 exports.user_create_post = (req, res) => {
-    console.log(req.body); //check if we're getting req.body
-    let user = new User(req.body);
+    // Example route using Multer
+    upload.single('avatarImg')(req, res, function (err) {
+        if (err) {
+            console.log(err);
+            return res.send('Error uploading file.');
+        }
 
-    // Save User
-    user.save()
-    .then(() => {
-        res.redirect("/user/index");
-    })
-    .catch((err) => {
-        console.log(err);
-        res.send("Please try again later.")
-    })
+        console.log(req.body); // check if we're getting req.body
+        let user = new User(req.body);
 
-}
+        // Save User
+        user.save()
+            .then(() => {
+                res.redirect('/user/index');
+            })
+            .catch((err) => {
+                console.log(err);
+                res.send('Please try again later.');
+            });
+    });
+};
 
 exports.user_index_get = (req, res) => {
     // console.log("u: ",res.locals.user._id)

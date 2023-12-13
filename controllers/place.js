@@ -1,4 +1,5 @@
 //API's/ function
+const upload = require('../config/multer'); // Adjust the path accordingly
 const {Place} = require("../models/Place")
 const {Category} = require("../models/Category")
 const {Review} = require("../models/Review");
@@ -12,65 +13,47 @@ const {Review} = require("../models/Review");
 //Create operations
 exports.place_create_get = (req, res) => {
     Category.find()
-    .then((categorys) =>{
-        res.render("place/add" , {categorys});
-    })
-    .catch( err =>{
-        console.log(err);
-    })
-}
-    //save  category inside place
-exports.place_create_post = (req, res) => {
-    const place = new Place(req.body);
-
-    // Handle file upload using multer
-    upload.single('placeImg')(req, res, function (err) {
-        if (err) {
+        .then((categorys) => {
+            // Pass an empty place object for the add page
+            res.render('place/add', { categorys, place: {} });
+        })
+        .catch((err) => {
             console.log(err);
-            return res.send('Error uploading file.');
-        }
-
-        // File upload was successful, update placeImg property
-        if (req.file) {
-            place.placeImg = req.file.path;
-        }
-
-        place.save()
-            .then((savedPlace) => {
-                console.log('Saved place:', savedPlace);
-
-                const categoryIds = Array.isArray(req.body.category) ? req.body.category : [req.body.category];
-                console.log('Category IDs:', categoryIds);
-
-                Promise.all(categoryIds.map(categoryId => {
-                    return Category.findById(categoryId)
-                        .then((category) => {
-                            if (category) {
-                                console.log('Found category:', category);
-                                category.place.push(savedPlace);
-                                return category.save();
-                            } else {
-                                console.log(`Category not found with ID: ${categoryId}`);
-                            }
-                        })
-                        .catch(err => {
-                            console.log(err);
-                        });
-                }))
-                .then(() => {
-                    res.redirect("/place/index");
+            res.send('Please try again later.');
+        });
+};
+    //save  category inside place
+    exports.place_create_post = (req, res) => {
+        // Example route using Multer
+        // upload.single('placeImg')(req, res, function (err) {
+        //     if (err) {
+        //         console.log(err);
+        //         return res.send('Error uploading file.');
+        //     }
+        console.log("req.body", req.body)
+    
+        console.log("req.file", req.file)
+        req.body.placeImg = "/uploads/" + req.file.filename
+            const place = new Place(req.body);
+    
+            // Handle file upload using multer
+            // File upload was successful, update placeImg property
+            // if (req.file) {
+            //     place.placeImg = req.file.path;
+            // }
+    
+            place.save()
+                .then((savedPlace) => {
+                    console.log('Saved place:', savedPlace);
+    
+                    // ... rest of the route handling ...
                 })
                 .catch((err) => {
                     console.log(err);
-                    res.send("Please try again later!!");
+                    res.send('Please try again later.');
                 });
-            })
-            .catch((err) => {
-                console.log(err);
-                res.send("Please try again later!!");
-            });
-    });
-};
+        // });
+    };
     
     
 
