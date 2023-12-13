@@ -90,10 +90,10 @@ exports.place_show_get = (req, res) => {
         .populate('category')
         .then((place) => {
             Review.find({ placeID: req.query.id })
-                .populate('user')  // populate
+                .populate('user')
                 .then((reviews) => {
                     console.log('Fetched reviews:', reviews);
-                    res.render("place/detail", { place, reviews });
+                    res.render("place/detail", { place, reviews }); // Pass both place and reviews to the template
                 })
                 .catch((err) => {
                     console.log(err);
@@ -104,6 +104,8 @@ exports.place_show_get = (req, res) => {
             console.log(err);
         });
 };
+
+
 
 
 

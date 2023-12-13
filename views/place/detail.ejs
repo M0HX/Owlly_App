@@ -1,5 +1,5 @@
 <div class="center">
-  <div >
+  <div>
     <h3><%= place.name %></h3>
   </div>
 </div>
@@ -28,6 +28,8 @@
             <% } %>
             <strong>Review:</strong> <%= review.reviewContent %><br>
           </p>
+          <!-- Display review images -->
+          <img src="<%= review.reviewImg %>"><br>
         <% }); %>
       <% } else { %>
         <!-- else no reviews found -->
@@ -46,7 +48,7 @@
       <label> Review </label>
       <input type="text" name="reviewContent" class="form-control bg-dark text-light"/>
       <label>Review Picture:</label>
-      <img src="<%= review.reviewImg %>"><br>
+      <!-- Input field for review image -->
       <input type="file" name="reviewImg">
     </div>
 
