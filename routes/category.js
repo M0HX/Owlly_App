@@ -16,7 +16,7 @@ const storage = multer.diskStorage({
 const upload = multer({ storage: storage });
 
 // Ensure logged in middleware
-router.use(ensureLoggedIn);
+//router.use(ensureLoggedIn);
 
 // Routes
 router.get("/add", categoryCntrl.category_create_get);
