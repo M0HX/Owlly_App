@@ -54,19 +54,23 @@ Admin Stories
     - Admin must be able to Delete a User.
    
 Modules/Languages/Libraries Used For The Projects
-    - NodeJS
-    - Express
-    - EJS 
-    - Express-EJS-Layouts
-    - Multer
-    - Mongoose
-    - MongoDB
-    - Passport
-    - HTML
-    - CSS
-    - JavaScript
-    - Bootstrap
+* NodeJS
+* Express
+* EJS 
+* Express-EJS-Layouts
+* Multer
+* Mongoose
+* MongoDB
+* Passport
+* HTML
+* CSS
+* JavaScript
+* Bootstrap
+
+List of Unsolved Problems/ Difficult Part
+The problems consisted of displayed places for each category. The connection between the listed places and a category was the main problem of our application and the time was mostly spend on that concept. 
 
 Future Enhancement of Owlly Application
+The future features of the application aim to enhance the application's appearance and funcitons. The future enhancement is applying a drop down feature for the category to enable the users to navigate the application easily. Adding more categories that represents more entertainment areas in Bahrain. Inserting a search bar to grant simple access to specific places that the viewer might be searching for. 
 
 
