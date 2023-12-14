@@ -34,9 +34,9 @@ exports.place_create_get = (req, res) => {
     
         // Handle file upload using multer
         if (req.file) {
-            place.placeImg = "/uploads/" + req.file.filename;
+            place.placeImg = "/uploads/places/" + req.file.filename;
         } else {
-            place.placeImg = "/uploads/default.png";
+            place.placeImg = "/uploads/places/default.png";
         }
     
         place.save()
@@ -49,6 +49,7 @@ exports.place_create_get = (req, res) => {
                 res.send('Please try again later.');
             });
     };
+    
     
     
     
