@@ -70,11 +70,16 @@ Trello Board
 - JavaScript
 - Bootstrap
 
-## Future Enhancements of Owlly Application
+## List of Unsolved Problems and Difficulties
+- When we click on a Category, the list of places should be displayed. Connecting the specific places to each category was difficult.
 
+## Future Enhancements of Owlly Application
 - Explore integration with additional social media platforms for user authentication.
 - Implement a feature for users to share their favorite places and activities on social media.
 - Enhance the user interface for a more seamless and intuitive experience.
 - Integrate a rating system for places and activities.
 - Implement a notification system for users to receive updates on new places and activities.
 - Expand the application to cover more locations and diverse types of entertainment.
+- Applying a dropdown to enhance application appearane and functions.
+- Adding more categories that will represent more areas in Bahrain.
+
