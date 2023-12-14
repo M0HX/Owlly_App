@@ -29,6 +29,7 @@ Entity Relationship Diagram
 
 Trello Board
 ![httos://google.com/](https://trello.com/invite/b/UlNrKvw2/ATTI9c64075675f4b9c53e7bfd428e725b1c8624AFEB/project-2-sei7)
+[a link](https://trello.com/invite/b/UlNrKvw2/ATTI9c64075675f4b9c53e7bfd428e725b1c8624AFEB/project-2-sei7)
 
 ## User Stories
 
