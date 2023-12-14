@@ -13,22 +13,22 @@
       <div class="col p-4 d-flex flex-column position-static">
         <div>
           <div>
-            <p><%= place.content %></p>
+            <p class="placeContent"><%= place.content %></p>
           </div>
         </div>
         <br>
         <br>
         <br>
-        <br>
-        <br>
-        <br>
-        <br>
+        <!-- <br> -->
+        <!-- <br> -->
+        <!-- <br>
+        <br> -->
         <div>
-          <div>
+          <div class="CategoryPlacecontent">
             <% place.category.forEach(function(category) { %>
               <a href="/category/detail?id=<%= category._id %>">
 
-                <%= category.name %>
+                Category: <%= category.name %>
               </a>
 
               <%})%>
