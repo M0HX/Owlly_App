@@ -1,8 +1,11 @@
+<div class="container-fluid form-style-6 d-flex flex-column justify-content-center align-items-center" style="width: 600px;">
+
 <h2>Edit Category</h2>
 <img class="divider" src="/images/divider.png">
 
 
 <form method="POST" action="/category/update" class="d-flex flex-column justify-content-center align-items-center">
+    <div class="row">
     <input type="hidden" name="id" value="<%= category._id %>"/>
     <div>
         <label class="d-flex justify-content-start align-items-start mb-2 "> Category Name: </label>
@@ -10,10 +13,10 @@
     </div>
     <div class="LeftButton">
 
-        <button type="submit"  class=" cat navList">Update Category</button>
+        <button type="submit"  class="navList">Update Category</button>
 
     </div>
-
+</div>
 </form> 
-
+</div>
 

@@ -44,7 +44,12 @@ exports.category_show_get = (req, res) => {
     console.log(req.query.id);
     Category.findById(req.query.id).populate('place')
     .then((category) => {
-        res.render("category/detail" , {category});
+        console.log(category)
+        Place.find({category:{$in : [req.query.id]}}).then((places) => {
+console.log(places)
+        res.render("category/detail" , {category,places});
+
+        })
     })
     .catch((err) => {
         console.log(err);

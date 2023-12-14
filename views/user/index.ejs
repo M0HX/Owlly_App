@@ -1,7 +1,7 @@
+<div class="container-fluid form-style-6 d-flex flex-column justify-content-center align-items-center" style="width: 600px;">
+
 <h2>User Profile</h2>
 <img class="divider" src="/images/divider.png">
-
-<div class="container-fluid form-style-6 d-flex flex-column justify-content-center align-items-center" style="width: 600px;">
 
 <form method="POST" action="/user/update?id=<%= user._id %>" enctype="multipart/form-data" >
 <div class="row">
@@ -26,11 +26,10 @@
         <img src="<%= user.avatar %>" class="profilePic ">
         <input class="form-control" type="file" name="avatarImg" accept="image/*">
     </div>
- </div>
- <div class="LeftButton1" >
-    <button type="submit" class=" cat navList">Update Profile</button>
- </div>
+
+    <button type="submit" class="navList">Update Profile</button>
 </div>
 </form>
 </div>
+
 

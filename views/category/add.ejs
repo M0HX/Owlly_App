@@ -1,19 +1,22 @@
-<div class="">
+<div class="container-fluid form-style-6 d-flex flex-column justify-content-center align-items-center" style="width: 600px;">
   <h2>Add Category</h2>
 
-  <form method="POST" action="/category/add" class="d-flex flex-column justify-content-center align-items-center" enctype="multipart/form-data">
-    <div>
+  <form method="POST" action="/category/add" >
+    <div class="row">
+
+      <div class="col-12 mb-2">
       <label class="d-flex justify-content-start align-items-start mb-2"> Category Name: </label>
       <input type="text" name="name" class="form-control" style="width: 600px;">
-    </div>
+      </div>
 
+      <div class="col-12 mb-2">
+       <label class="d-flex justify-content-start">Category Picture:</label>
+      <input class="form-control" type="file" name="categoryImg">
+      </div>
+    </div>
     <div>
-      <label>Category Picture:</label>
-      <input type="file" name="categoryImg">
-    </div>
-
-    <div class="LeftButton">
-      <button type="submit" class="cat navList">Create Category</button>
-    </div>
+      <button type="submit" class=" cat navList">Create Category</button>
+      </div>
   </form>
 </div>
+  

@@ -1,4 +1,9 @@
-  </div>
+<div class="container-fluid form-style-10 d-flex flex-column justify-content-center align-items-center" >
+
+<div>
+  <h2><%= place.name %></h2>
+  <img class="divider" src="/images/divider.png">
+</div>
   <div class="col-md-10">
     <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
       <div class="col-auto d-none d-lg-block">
@@ -11,13 +16,34 @@
             <p><%= place.content %></p>
           </div>
         </div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <div>
+          <div>
+            <% place.category.forEach(function(category) { %>
+              <a href="/category/detail?id=<%= category._id %>">
+
+                <%= category.name %>
+              </a>
+
+              <%})%>
+            </div>
+          </div>
+      
       </div>
-    </div>
+      </div>
+      </div>
+      </div>
   </div>
   <!-- Reviews -->
-  <div>
-    <div>
-      <p>
+  <div class="container-fluid form-style-10 d-flex flex-column justify-content-center align-items-center">
+    <div  >
+       <p >
         <% if (reviews && reviews.length > 0) { %>
           <% reviews.forEach(function(review) { %>
             <!-- Display review details -->
@@ -39,18 +65,18 @@
         <% } %>
       </p>
     </div>
-  </div>
+  <div >
+    <div class=" form-style-8 d-flex flex-column justify-content-center align-items-center" >
   <% if (user && user._id) { %>
     <form method="POST" action="/review/add" enctype="multipart/form-data">
       <input type="hidden" name="placeID" value="<%= place._id %>"/>
       <input type="hidden" name="userID" value="<%= user._id %>"/>
       <div>
-        <label> Review </label>
+        <label class="d-flex justify-content-start"> Review </label>
         <input type="text" name="reviewContent" class="form-control"/>
-        <input type="text" name="reviewContent" class="form-control bg-dark text-light"/>
-        <label>Review Picture:</label>
+        <label class="d-flex justify-content-start" >Review Picture:</label>
         <!-- Input field for review image -->
-        <input type="file" name="reviewImg">
+        <input class="form-control" type="file" name="reviewImg">
       </div>
       <br>
       <button type="submit" class="navList">Add Review</button>
@@ -59,4 +85,8 @@
     <!-- else user not logged in -->
     <p>Login to add a review.</p>
   <% } %>
+</div>
+</div>
+  </div>
+</div>
 </div>
