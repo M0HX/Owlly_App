@@ -8,16 +8,19 @@ const placeCntrl = require("../controllers/place")
 router.use(express.urlencoded({extended: true}))
 
 // Multer
+// Multer
 const multer = require('multer');
-var storage = multer.diskStorage({
-    destination: function (req, file, cb) {
-      cb(null, './public/uploads/')
-    },
-    filename: function (req, file, cb) {
-      cb(null, file.fieldname + '-' + Date.now() + '-' + file.originalname)
-    }
-  })
-  let upload = multer({ storage: storage })
+const storage = multer.diskStorage({
+  destination: './public/uploads/',
+  filename: function (req, file, cb) {
+      const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
+      cb(null, file.fieldname + '-' + uniqueSuffix);
+  }
+});
+
+
+const upload = multer({ storage: storage });
+
 
 // Require the auth middleware
 const ensureLoggedIn = require('../config/ensureLoggedIn');
