@@ -9,15 +9,21 @@ router.use(express.urlencoded({extended: true}))
 
 // Multer
 const multer = require('multer');
-var storage = multer.diskStorage({
-    destination: function (req, file, cb) {
-      cb(null, './public/uploads/')
-    },
-    filename: function (req, file, cb) {
-      cb(null, file.fieldname + '-' + Date.now() + '-' + file.originalname)
-    }
-  })
-  let upload = multer({ storage: storage })
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, './public/uploads/places/');
+  },
+  filename: function (req, file, cb) {
+    const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
+    const fileExtension = file.originalname.split('.').pop(); // Get the file extension
+    cb(null, 'place-' + uniqueSuffix + '.' + fileExtension);
+  }
+});
+
+const upload = multer({ storage: storage });
+
+
+
 
 // Require the auth middleware
 const ensureLoggedIn = require('../config/ensureLoggedIn');
