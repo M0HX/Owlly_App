@@ -30,43 +30,51 @@ Entity Relationship Diagram
 Trello Board
 ![Link](https://trello.com/invite/b/UlNrKvw2/ATTI9c64075675f4b9c53e7bfd428e725b1c8624AFEB/project-2-sei7)
 
-User Stories
-    - User must be able to Sign Up.
-    - User must be able to Login.
-    - User must be able to Logout.
-    - User must have a Profile.
-    - User must be able to upload a Profile Picture.
-    - User must be able to Edit their Personal Information.
-    - User must be able to Read the content of the Application.
-    - User must be able to Create a Review.
-    - User must be able to View the Reviews.
-    - User must be able to Edit a Review.
-    - User must be able to Delete a Review.
-    - User must not be able to edit or delete Other Users' Reviews.
+## User Stories
 
-Admin Stories
-    - Admin must be able to Login.
-    - Amin must be able to Logout.
-    - Admin must be able to Create a Category.
-    - Admin must be able to Add a Place of Entertainment.
-    - Admin must be able to Delete Reviews.
-    - Admin must be able to View Users information.
-    - Admin must be able to Delete a User.
-   
-Modules/Languages/Libraries Used For The Projects
-    - NodeJS
-    - Express
-    - EJS 
-    - Express-EJS-Layouts
-    - Multer
-    - Mongoose
-    - MongoDB
-    - Passport
-    - HTML
-    - CSS
-    - JavaScript
-    - Bootstrap
+- Users should be able to sign up.
+- Users should be able to log in.
+- Users should be able to log out.
+- Users should have a profile.
+- Users should be able to upload a profile picture.
+- Users should be able to edit their personal information.
+- Users should be able to read the content of the application.
+- Users should be able to create a review.
+- Users should be able to view reviews.
+- Users should be able to edit a review.
+- Users should be able to delete a review.
+- Users should not be able to edit or delete other users' reviews.
 
-Future Enhancement of Owlly Application
+## Admin Stories
 
+- Admins should be able to log in.
+- Admins should be able to log out.
+- Admins should be able to create a category.
+- Admins should be able to add a place of entertainment.
+- Admins should be able to delete reviews.
+- Admins should be able to view users' information.
+- Admins should be able to delete a user.
 
+## Modules/Languages/Libraries Used for the Project
+
+- Node.js
+- Express
+- EJS
+- Express-EJS-Layouts
+- Multer
+- Mongoose
+- MongoDB
+- Passport
+- HTML
+- CSS
+- JavaScript
+- Bootstrap
+
+## Future Enhancements of Owlly Application
+
+- Explore integration with additional social media platforms for user authentication.
+- Implement a feature for users to share their favorite places and activities on social media.
+- Enhance the user interface for a more seamless and intuitive experience.
+- Integrate a rating system for places and activities.
+- Implement a notification system for users to receive updates on new places and activities.
+- Expand the application to cover more locations and diverse types of entertainment.
