@@ -166,9 +166,10 @@ h2{
     text-align: center;
     color: rgb(137, 21, 21);
 }
-.profilePic{
+.uploadSize{
     width:25%;
 }
+
 .updateButton{
     margin-left: 46%;
     font-size:15px;
@@ -178,6 +179,10 @@ h2{
     background-color: #fffbf3;
     border: 2px solid rgb(220, 217, 217);
     border-radius: 5px;
+}
+.font{
+    font-family: 'Trocchi', sans-serif;
+
 }
 label{
     font-family: 'Trocchi', sans-serif;
