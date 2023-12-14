@@ -6,18 +6,18 @@ Owlly Application:
 Owlly Logo
 ![Image](./public/images/Owlly-Logo-readme.png)
 
-Description
-    Owlly is an Entertainment Application targeted to users that seek to discover the entertaining locations and activities in Bahrain. Owlly will be available for all audiences that range from Bahrainis and tourists that wish to seek enjoyable outdoor activities. 
+*Description:*
+Owlly is an entertainment application targeting users who want to discover enjoyable locations and activities in Bahrain. Owlly is designed for all audiences, including Bahrainis and tourists seeking entertaining outdoor activities.
 
-Instructions of the Application: About Owlly Application
-Viewer will be able to Sign up using their google account and proceed to view the places by browsing through the categories and the places to discover Bahrain. The application targets people that wants to experience a memorable time. Adding a review to the places will help share the spent time of enjoyment with other people. 
+*Application Instructions:*
+In the Owlly application, users can sign up using their Google account and explore places by browsing through categories to discover Bahrain. The application caters to individuals who want to have a memorable experience. Adding reviews to places allows users to share their enjoyable experiences with others.
 
-Users can click on their username and edit their information, furthermore, they can upload profile pictures from their devices. 
+Users can click on their username to edit their information, and they can also upload profile pictures from their devices.
 
-An admin will be able to Login and make the necessary changes such as adding a place with the content and uploaded content. Along with the addition of categories and uploaded pictures. Admins also have the permissions to delete categories, places, and reviews. 
+Administrators have the ability to log in and make necessary changes, such as adding places with content and uploaded media. Additionally, administrators can add categories and pictures. They also have permission to delete categories, places, and reviews.
 
-WireFrame:
-The designed wireframes to understand the concept of the application and structure. The displayed wireframes are for the home page, category details, place details, and reviews.
+*Wireframes:*
+Designed wireframes provide a conceptual understanding of the application and its structure. The displayed wireframes include designs for the home page, category details, place details, and reviews.
 ![Image](./public/images/homepage-readme.png)
 ![Image](./public/images/restaurant-readme.png)
 ![Image](./public/images/places-detail-readme.png)
