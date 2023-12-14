@@ -22,6 +22,10 @@ Designed wireframes provide a conceptual understanding of the application and it
 ![Image](./public/images/restaurant-readme.png)
 ![Image](./public/images/places-detail-readme.png)
 ![Image](./public/images/review-readme.png)
+![Image](./public/images/Screenshot%20(3).png)
+![Image](./public/images/Screenshot%20(4).png)
+![Image](./public/images/Screenshot%20(5).png)
+![Image](./public/images/Screenshot%20(6).png)
 
 
 Entity Relationship Diagram
