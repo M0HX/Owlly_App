@@ -1,9 +1,9 @@
+<!-- add.ejs -->
 <div class="container-fluid form-style-6 d-flex flex-column justify-content-center align-items-center" style="width: 600px;">
     <h2>Add Place</h2>
     <img class="divider" src="/images/divider.png">
 
-
-    <form method="POST" action="/place/add">
+    <form method="POST" action="/place/add" enctype="multipart/form-data">
         <div class="row">
             <div class="col-12 mb-2">
                 <label class="d-flex justify-content-start">Name: </label>
@@ -21,9 +21,8 @@
                     <% }); %>
                 </select>
             </div>
-            <div>
-                <label class="d-flex justify-content-start"> Place Picture:</label>
-                <img  src="<%= place.placeImg %>">
+            <div class="col-12 mb-2">
+                <label class="d-flex justify-content-start">Place Picture:</label>
                 <input class="form-control" type="file" name="placeImg">
             </div>
         </div>

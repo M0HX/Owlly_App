@@ -48,13 +48,15 @@ exports.review_create_post = (req, res) => {
     // Save Review
     review.save()
         .then(() => {
-            res.redirect("/review/index");
+            // Redirect to the place page using the placeID from the form
+            res.redirect(`/place/detail?id=${req.body.placeID}`);
         })
         .catch((err) => {
             console.log(err);
             res.send("Please try again later.");
         });
 };
+
 
 
 

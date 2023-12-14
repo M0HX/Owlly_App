@@ -27,40 +27,30 @@ exports.place_create_get = (req, res) => {
 };
     //save  category inside place
     exports.place_create_post = (req, res) => {
-        // Example route using Multer
-        // upload.single('placeImg')(req, res, function (err) {
-        //     if (err) {
-        //         console.log(err);
-        //         return res.send('Error uploading file.');
-        //     }
-        console.log("req.body", req.body)
+        console.log("req.body", req.body);
+        console.log("req.file", req.file);
     
-        console.log("req.file", req.file)
-        if(req.file) {
-        req.body.placeImg = "/uploads/" + req.file.filename
+        const place = new Place(req.body);
+    
+        // Handle file upload using multer
+        if (req.file) {
+            place.placeImg = "/uploads/places/" + req.file.filename;
         } else {
-            req.body.placeImg = "/uploads/default.png";
+            place.placeImg = "/uploads/places/default.png";
         }
-            const place = new Place(req.body);
-            
-            // Handle file upload using multer
-            // File upload was successful, update placeImg property
-            // if (req.file) {
-            //     place.placeImg = req.file.path;
-            // }
     
-            place.save()
-                .then((savedPlace) => {
-                    console.log('Saved place:', savedPlace);
-    
-                    res.redirect("/place/index");
-                })
-                .catch((err) => {
-                    console.log(err);
-                    res.send('Please try again later.');
-                });
-        // });
+        place.save()
+            .then((savedPlace) => {
+                console.log('Saved place:', savedPlace);
+                res.redirect("/place/index");
+            })
+            .catch((err) => {
+                console.log(err);
+                res.send('Please try again later.');
+            });
     };
+    
+    
     
     
 
