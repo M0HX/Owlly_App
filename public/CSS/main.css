@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Trocchi&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Shantell+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playpen+Sans:wght@300;400;500&family=Shantell+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,500&display=swap');
 
 
 body{
@@ -203,4 +204,13 @@ label{
     margin-right: 30%;
     padding: 5px;
     width:30%;
+}
+.placeContent{
+    font-family: 'Playpen Sans', sans-serif;
+    font-size: 20px;
+}
+
+.CategoryPlacecontent{
+    font-family: 'Trocchi', sans-serif;
+    font-size: 15px;
 }
