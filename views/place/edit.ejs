@@ -1,7 +1,11 @@
+<div class="container-fluid form-style-6 d-flex flex-column justify-content-center align-items-center" style="width: 600px;">
+
     <h2>Edit Place</h2>
     <img class="divider" src="/images/divider.png">
 
     <form method="POST" action="/place/update" class="d-flex flex-column justify-content-center align-items-center">
+        <div class="row">
+
         <div>
             <label class="d-flex justify-content-start align-items-start mb-2"> Place Name: </label>
             <input type="text" name="name" value="<%= place.name %>" class="form-control" style="width: 600px;">
@@ -10,7 +14,10 @@
     
         <input type="hidden" name="id" value="<%= place._id %>"  class="form-control" style="width: 600px;">
 
-        <div class="LeftButton">
-        <button type="submit" class=" cat navList">Update Place</button>
+       
+ <button type="submit" class="navList">Update Place</button>
         </div>
     </form>
+    
+
+</div>

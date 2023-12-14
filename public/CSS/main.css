@@ -62,7 +62,7 @@ padding: 6px;
 .homepic{
     background: url(../images/bahrain-skyline.jpg);
     background-size: cover;
-    max-width: 90%;
+    max-width: 100%;
     height: auto;
     background-position: center center;
 }
@@ -190,7 +190,7 @@ label{
     text-align: center;
 }
 .cat{
-    width: 90%;
+    width: 30%;
     font-size: 15px;
 
 }
