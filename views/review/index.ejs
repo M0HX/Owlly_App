@@ -1,8 +1,11 @@
+<div class=" font container-fluid form-style-6 d-flex flex-column justify-content-center align-items-center" style="width: 600px;">
+
 <h2>Reviews</h2>
 <img class="divider" src="/images/divider.png">
 
 
-<table class="table table-hover">
+<table class=" form-controltable table-hover">
+    <div class="row">
     <tr>
         <!-- <th>Review ID</th> -->
         <th>Review Content</th>
@@ -24,19 +27,20 @@
     
             <td>
             <form method="POST" action="/review/delete?id=<%= review._id %>&_method=delete">
-                <button type="submit" class="btn btn-danger">Delete</button>
+                <button type="submit" class="navList">Delete</button>
             </form>
             </td>
 
             <td>
             <form method="GET" action="/review/edit?id=<%= review._id %>">
                 <input type="hidden" name="id" value="<%= review._id %>">
-                <button type="submit" class="btn btn-secondary">Edit</button>
+                <button type="submit" class="navList">Edit</button>
             </form>
             </td>
 
         </tr>
     <% }) %>
     
-
+    </div>
 </table>
+</div>
