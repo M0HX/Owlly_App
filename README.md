@@ -30,6 +30,13 @@ Entity Relationship Diagram
 Trello Board
 [https://trello.com/invite/b/UlNrKvw2/ATTI9c64075675f4b9c53e7bfd428e725b1c8624AFEB/project-2-sei7](https://trello.com/invite/b/UlNrKvw2/ATTI9c64075675f4b9c53e7bfd428e725b1c8624AFEB/project-2-sei7)
 
+## Setup Instructions
+- Clone this repo
+- Edit the .env with the connection string of mongodb.
+- Install the required packages using npm
+- Run it using nodemon / node
+
+
 ## User Stories
 
 - Users should be able to sign up.
